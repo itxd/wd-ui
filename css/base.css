@@ -314,7 +314,6 @@ body.anno-all [data-ui] { outline: 1px dashed color-mix(in srgb, var(--anno) 70%
 /* 响应式 */
 @media (max-width: 1100px) {
   .topnav { justify-content: flex-start; }
-  .tool-switch span:last-child { display: none; }
   .formula { grid-template-columns: repeat(2, 1fr); }
   .formula-item { border-bottom: 1px solid var(--border); }
   .formula-item::after { display: none; }

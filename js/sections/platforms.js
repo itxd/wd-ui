@@ -67,12 +67,12 @@
   /* 产品形态示例可切换的 UI 风格皮肤：[风格 id, 名称, 色样] */
   const skins = [
     ['saas', '现代 SaaS（默认）', 'linear-gradient(135deg,#fff 50%,#4f46e5 50%)'], ['flat', '扁平', '#3498db'], ['min', '极简', 'linear-gradient(135deg,#fafaf9 50%,#1c1917 50%)'],
-    ['glass', '玻璃拟态', 'linear-gradient(135deg,#ec4899,#5b21b6,#06b6d4)'], ['neu', '新拟态', '#e0e5ec'], ['brutal', '新野兽派', 'linear-gradient(135deg,#fde047 50%,#ff5c8a 50%)'],
+    ['glasslight', '浅色玻璃', 'linear-gradient(135deg,#eef2ff,#fbcfe8,#ccfbf1)'], ['glass', '深色玻璃', 'linear-gradient(135deg,#1e1b4b,#7c3aed)'], ['neu', '新拟态', '#f1f4f8'], ['brutal', '新野兽派', 'linear-gradient(135deg,#fde047 50%,#ff5c8a 50%)'],
     ['darktech', '暗黑科技', 'linear-gradient(135deg,#08090a 55%,#6366f1)'], ['clay', '粘土拟态', 'linear-gradient(135deg,#fdf2f8,#a855f7)'], ['m3', 'Material 3', '#eaddff'], ['cyber', '赛博朋克', 'linear-gradient(135deg,#0d0221 50%,#ff2a6d 50%)'],
   ];
   const paintSkinDesc = (id) => {
     const sp = Atlas.styleSpecs[id];
-    document.getElementById('skinDesc').innerHTML = `<span>当前：<b>${sp.zh}</b> · ${sp.mood}</span><span>${sp.shape.split('；')[0]}</span>${id === 'saas' ? '' : `<a class="btn btn-text" href="#st-${id}">查看该风格 ${I('arrowR', 12)}</a>`}`;
+    document.getElementById('skinDesc').innerHTML = `<span>当前：<b>${sp.zh}</b> · ${sp.mood}</span><span>${sp.shape.split('；')[0]}</span>${document.getElementById(`st-${id}`) ? `<a class="btn btn-text" href="#st-${id}">查看该风格 ${I('arrowR', 12)}</a>` : ''}`;
   };
   Atlas.acts.skin = (el) => {
     Atlas.acts.pick(el);
@@ -91,7 +91,15 @@
         chips: ['布局骨架', '导航模式', '信息密度', '平台规范'],
       })}
       <div class="plat-switch rv">
-        <button class="btn btn-primary prompt-cta" type="button" data-act="prompt" data-kind="form">${I('sparkle', 15)}复制当前界面提示词</button>
+        <div class="plat-tools">
+          <label class="tool-switch" title="鼠标悬停在示例界面上，显示该区域的组件名称">
+            <input type="checkbox" id="inspectToggle" checked><span class="tool-switch-ui"></span><span>检查器</span>
+          </label>
+          <label class="tool-switch" title="在所有示例界面上同时显示组件名称">
+            <input type="checkbox" id="annoToggle"><span class="tool-switch-ui"></span><span>全部标注</span>
+          </label>
+          <button class="btn btn-primary prompt-cta" type="button" data-act="prompt" data-kind="form">${I('sparkle', 15)}复制当前界面提示词</button>
+        </div>
         ${Atlas.tabs('plat', [
           { id: 'plat-admin', label: '管理后台', sub: 'Admin', icon: 'sidebar' },
           { id: 'plat-web', label: 'Web 应用', sub: 'Web App', icon: 'globe' },

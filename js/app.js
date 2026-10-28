@@ -193,6 +193,13 @@
       <span>形态 × 色系 × 风格 × 功能 × 动效</span>
     </div>`;
 
+  /* ---------- GitHub Star 数（取不到时保持显示“Star”） ---------- */
+  const fmtStars = (n) => (n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k` : String(n));
+  fetch('https://api.github.com/repos/itxd/wd-ui')
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`GitHub API ${r.status}`))))
+    .then((d) => { document.getElementById('ghStars').textContent = fmtStars(d.stargazers_count); })
+    .catch(() => { document.getElementById('ghStars').textContent = 'Star'; });
+
   /* ---------- 启动 ---------- */
   const savedTheme = store.get('atlas-theme');
   applyTheme(savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));

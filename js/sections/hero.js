@@ -10,43 +10,25 @@
   ];
 
   const REPO = 'itxd/wd-ui';
-  const cmd = (text) => `<div class="inst-cmd"><code>${Atlas.esc(text)}</code><button type="button" class="btn btn-ghost btn-xs" data-act="copy" data-copy="${Atlas.esc(text)}" aria-label="复制命令">${I('copy', 13)}复制</button></div>`;
-  const install = `
-    <div class="install rv" id="install">
-      <div class="inst-head">
-        <span class="inst-logo">${I('sparkle', 18)}</span>
-        <div class="inst-title"><b>wd-ui Skill</b><small>装进 Claude Code 等 AI 助手：按你的业务场景推荐 UI 风格、配色与组件，并生成精准设计提示词</small></div>
-        <span class="tag tag-success tag-round">MIT 开源 · 免费商用</span>
-        <a class="btn btn-sm" href="https://github.com/${REPO}" target="_blank" rel="noopener">${I('github', 14)}GitHub</a>
-      </div>
-      ${Atlas.tabs('inst', [
-        { id: 'inst-npx', label: 'skills CLI', sub: '通用' },
-        { id: 'inst-plugin', label: 'Claude Code 插件' },
-        { id: 'inst-manual', label: '手动安装' },
-        { id: 'inst-zip', label: '下载 ZIP' },
-      ], 'seg inst-tabs')}
-      ${Atlas.panel('inst', 'inst-npx', `${cmd(`npx skills add ${REPO}`)}<p class="inst-note">支持 Claude Code、Codex、Cursor、Gemini CLI 等多种 Agent，安装时按提示选择目标即可。</p>`, true)}
-      ${Atlas.panel('inst', 'inst-plugin', `${cmd(`/plugin marketplace add ${REPO}`)}${cmd('/plugin install wd-ui@wd-ui')}<p class="inst-note">在 Claude Code 对话框中依次输入这两条命令。</p>`)}
-      ${Atlas.panel('inst', 'inst-manual', `${cmd(`git clone https://github.com/${REPO}.git`)}${cmd('mkdir -p ~/.claude/skills && cp -r wd-ui/skills/wd-ui ~/.claude/skills/')}<p class="inst-note">复制到个人 skills 目录后，所有项目都可以使用；复制到项目的 .claude/skills/ 则只在该项目生效。</p>`)}
-      ${Atlas.panel('inst', 'inst-zip', `<div class="inst-cmd"><code>https://github.com/${REPO}/archive/refs/heads/main.zip</code><a class="btn btn-primary btn-xs" href="https://github.com/${REPO}/archive/refs/heads/main.zip">${I('download', 13)}下载</a></div><p class="inst-note">解压后把 skills/wd-ui 文件夹复制到 ~/.claude/skills/。</p>`)}
-      <div class="inst-try">${I('message', 14)}<span>安装后这样问：</span><code>我要做一个面向中小企业的进销存管理后台，帮我选 UI 风格并给出设计提示词</code><button type="button" class="btn btn-ghost btn-xs" data-act="copy" data-copy="我要做一个面向中小企业的进销存管理后台，帮我选 UI 风格并给出设计提示词">${I('copy', 13)}</button></div>
-    </div>`;
+  const CMD = `npx skills add ${REPO}`;
 
   Atlas.mount('top', `
     <div class="hero-bg"><div class="hero-grid"></div><i></i><i></i><i></i></div>
     <div class="wrap">
-      ${install}
-      <span class="hero-eyebrow rv"><b>2026 版</b>一页看懂网页界面：形态 × 色系 × 风格 × 功能 × 动效</span>
-      <h1 class="rv">网页 UI <span class="grad">图谱</span><br>Interface Atlas</h1>
+      <span class="hero-eyebrow rv"><b>开源 Skill</b>wd-ui · 让 AI 选对 UI 风格，写出精准的设计提示词</span>
+      <h1 class="rv">网页 UI <span class="grad">图谱</span></h1>
+      <p class="hero-sub rv">一页看懂网页界面，<br>一条命令让 AI 学会。</p>
       <p class="hero-lead rv">
-        任何一个网页，都可以被拆成五个维度来描述和设计。下面每个维度都配了<strong>可以直接操作</strong>的示例：
-        14 个可交互的后台、官网、App 示例界面，15 套色板，27 种风格样本，100 多个带中英文名称的组件，27 种页面类型，80 多种动效。
-        打开右上角的<strong>检查器</strong>，鼠标移到示例界面的任何区域，都会显示它的组件名称。
+        按产品形态、UI 风格、色系、功能、动效五个维度拆解网页：14 个可交互示例界面、27 种风格、15 套色板、100 多个组件、27 种页面类型、80 多种动效，每一项都能复制精确提示词。
+        安装 wd-ui 后，Claude Code、Cursor、Codex 等 AI 助手会按你的业务场景推荐风格，并生成可直接使用的设计提示词。
       </p>
+      <div class="hero-cmd rv">
+        <code><em>$</em> ${CMD}</code>
+        <button type="button" data-act="copy" data-copy="${CMD}" aria-label="复制安装命令">${I('copy', 16)}复制</button>
+      </div>
       <div class="hero-cta rv">
-        <a class="btn btn-primary btn-lg" href="#platforms">从产品形态开始 ${I('arrowDown', 16)}</a>
-        <a class="btn btn-lg" href="#styles">${I('layers', 16)} 浏览 UI 风格</a>
-        <a class="btn btn-ghost btn-lg" href="#glossary">${I('search', 16)} 术语索引</a>
+        <a class="btn btn-dark btn-lg btn-pill" href="#platforms">从产品形态开始</a>
+        <a class="btn btn-lg btn-pill hero-more" href="https://github.com/${REPO}#安装-skill" target="_blank" rel="noopener">其他安装方式 ${I('arrowR', 16)}</a>
       </div>
 
       <div class="formula rv">
@@ -68,7 +50,7 @@
         配合<mark data-k="动效">骨架屏加载、200ms 缓出过渡</mark>。
       </div>
       <div class="hero-tips rv">
-        <span>${I('pointer', 14)} 悬停示例界面查看组件名</span>
+        <span>${I('pointer', 14)} 在产品形态区打开检查器，悬停查看组件名</span>
         <span>${I('palette', 14)} 右上角圆点切换主题色，全站示例同步变色</span>
         <span>${I('moon', 14)} 支持明暗模式</span>
         <span>${I('play', 14)} 动效卡片可点击重播</span>
