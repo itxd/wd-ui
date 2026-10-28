@@ -1,0 +1,219 @@
+/* ============ 产品形态示例的 UI 风格皮肤 ============
+   皮肤挂在 #platSkin[data-skin] 上，令牌只作用于示例外框（后台、浏览器、手机），不影响说明文字。 */
+
+/* 风格切换条 */
+.skin-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: -8px 0 22px; padding: 10px 12px; border-radius: 14px; border: 1px solid var(--border); background: var(--card); }
+.skin-bar > b { display: flex; align-items: center; gap: 6px; font-size: 13px; white-space: nowrap; }
+.skin-list { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
+.skin-list button { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 6px; border-radius: 99px; border: 1px solid var(--border); background: var(--card); color: var(--fg-2); font: inherit; font-size: 12.5px; cursor: pointer; transition: all .2s; }
+.skin-list button i { width: 18px; height: 18px; border-radius: 50%; background: var(--sw); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12); }
+.skin-list button:hover { color: var(--fg); border-color: var(--border-2); }
+.skin-list button.on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.skin-desc { width: 100%; font-size: 12.5px; color: var(--fg-3); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.skin-desc b { color: var(--fg); }
+
+/* 所有皮肤共用：在外框上重新计算派生色，并让文字使用皮肤自己的前景色 */
+[data-skin] :is(.admin, .browser, .phone) {
+  --primary-soft: color-mix(in srgb, var(--primary) 12%, transparent);
+  --primary-soft-2: color-mix(in srgb, var(--primary) 22%, transparent);
+  --primary-border: color-mix(in srgb, var(--primary) 40%, transparent);
+  --primary-strong: color-mix(in srgb, var(--primary) 82%, #000);
+}
+[data-skin]:not([data-skin="saas"]) :is(.admin, .browser) { color: var(--fg); }
+[data-skin] :is(.admin, .browser, .phone) { transition: background .4s; }
+
+/* ---------- 扁平 Flat ---------- */
+[data-skin="flat"] :is(.admin, .browser, .phone) {
+  color-scheme: light;
+  --bg: #ecf0f1; --bg-2: #dfe6e9; --card: #ffffff; --card-2: #f4f6f7; --fg: #2c3e50; --fg-2: #34495e; --fg-3: #7f8c8d; --muted: #95a5a6;
+  --border: #dfe6e9; --border-2: #cfd8dc; --hover: rgba(44, 62, 80, .06);
+  --shadow-sm: none; --shadow: none; --shadow-lg: none; --shadow-xl: none;
+  --r-card: 4px; --r-ctl: 4px; --r-tag: 3px; --radius: 4px;
+  --primary: #3498db; --primary-fg: #ffffff; --success: #27ae60; --warning: #f39c12; --danger: #e74c3c; --info: #2980b9;
+  --s1: #3498db; --s2: #e67e22; --s3: #2ecc71; --s4: #f1c40f; --s7: #9b59b6; --s8: #e74c3c; --grid: #dfe6e9;
+  --ios-bg: #ecf0f1; --ios-card: #ffffff; --ios-fg: #2c3e50; --ios-fg2: #7f8c8d; --ios-sep: #dfe6e9; --ios-fill: #dfe6e9;
+}
+[data-skin="flat"] .card { border-color: transparent; }
+[data-skin="flat"] .btn-primary { box-shadow: none; }
+[data-skin="flat"] .adm-side { background: #2c3e50; border-color: #2c3e50; }
+[data-skin="flat"] .adm-side .adm-logo b { color: #fff; }
+[data-skin="flat"] .adm-menu { color: #bdc3c7; }
+[data-skin="flat"] .adm-menu:hover { background: rgba(255, 255, 255, .06); color: #fff; }
+[data-skin="flat"] .adm-menu.on { background: #3498db; color: #fff; }
+[data-skin="flat"] .adm-menu.on::before { display: none; }
+[data-skin="flat"] .adm-submenu > a { color: #95a5a6; }
+[data-skin="flat"] .adm-side-foot { background: #34495e; border-color: #34495e; color: #ecf0f1; }
+[data-skin="flat"] .adm-side-foot small { color: #bdc3c7; }
+[data-skin="flat"] :is(.lp-grad, .tab-center, .prof-head, .lp-cta-band) { background: #3498db; }
+[data-skin="flat"] .lp-grad { -webkit-background-clip: border-box; background-clip: border-box; background: none; color: #3498db; }
+
+/* ---------- 极简 Minimal ---------- */
+[data-skin="min"] :is(.admin, .browser, .phone) {
+  color-scheme: light;
+  --bg: #fafaf9; --bg-2: #f5f5f4; --card: #ffffff; --card-2: #fafaf9; --fg: #1c1917; --fg-2: #44403c; --fg-3: #78716c; --muted: #a8a29e;
+  --border: #e7e5e4; --border-2: #d6d3d1; --hover: rgba(28, 25, 23, .04);
+  --shadow-sm: none; --shadow: none; --shadow-lg: 0 20px 40px -20px rgba(28, 25, 23, .25); --shadow-xl: 0 30px 60px -30px rgba(28, 25, 23, .3);
+  --r-card: 2px; --r-ctl: 2px; --r-tag: 2px; --radius: 2px;
+  --primary: #1c1917; --primary-fg: #ffffff;
+  --s1: #1c1917; --s2: #a8a29e; --s3: #57534e; --s4: #d6d3d1; --grid: #f0efee;
+  --ios-bg: #fafaf9; --ios-card: #ffffff; --ios-fg: #1c1917; --ios-fg2: #78716c; --ios-sep: #e7e5e4; --ios-fill: #f5f5f4;
+}
+[data-skin="min"] :is(.adm-pagehead h2, .lp-hero h1, .lp-sec-head h2, .docs-content h1, .shop-info h1, .ios-large h2, .detail-sheet h3, .lp-cta-band h2) { font-family: var(--font-serif); font-weight: 400; letter-spacing: -.01em; }
+[data-skin="min"] .lp-grad { background: none; color: var(--fg); font-style: italic; }
+[data-skin="min"] :is(.lp-announce, .lp-cta-band, .tab-center, .prof-head, .app-btn, .shop-now, .lp-cursor em) { background: #1c1917; box-shadow: none; }
+[data-skin="min"] :is(.lp-shot-glow, .lp-hero) { background: none; }
+[data-skin="min"] .lp-shot-glow { display: none; }
+[data-skin="min"] .adm-menu.on::before { display: none; }
+[data-skin="min"] .adm-menu.on { background: none; text-decoration: underline; text-underline-offset: 4px; }
+[data-skin="min"] .btn-primary { box-shadow: none; }
+
+/* ---------- 玻璃拟态 Glassmorphism ---------- */
+[data-skin="glass"] :is(.admin, .browser, .phone) {
+  color-scheme: dark;
+  --bg: #312e81; --bg-2: rgba(255, 255, 255, .12); --card: rgba(255, 255, 255, .14); --card-2: rgba(255, 255, 255, .08);
+  --fg: #ffffff; --fg-2: rgba(255, 255, 255, .86); --fg-3: rgba(255, 255, 255, .66); --muted: rgba(255, 255, 255, .5);
+  --border: rgba(255, 255, 255, .26); --border-2: rgba(255, 255, 255, .4); --hover: rgba(255, 255, 255, .1); --overlay: rgba(15, 10, 40, .35);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, .12); --shadow: 0 8px 24px rgba(0, 0, 0, .18); --shadow-lg: 0 16px 40px rgba(0, 0, 0, .25); --shadow-xl: 0 24px 60px rgba(0, 0, 0, .35);
+  --r-card: 18px; --r-ctl: 12px; --r-tag: 999px; --radius: 18px;
+  --primary: #ffffff; --primary-fg: #312e81; --grid: rgba(255, 255, 255, .14);
+  --s1: #f9a8d4; --s2: #67e8f9; --s3: #fde68a; --s4: #c4b5fd;
+  --ios-bg: transparent; --ios-card: rgba(255, 255, 255, .16); --ios-fg: #ffffff; --ios-fg2: rgba(255, 255, 255, .7); --ios-sep: rgba(255, 255, 255, .22); --ios-fill: rgba(255, 255, 255, .14);
+}
+[data-skin="glass"] :is(.admin, .browser-body, .phone-screen.ios) {
+  background: radial-gradient(circle at 12% 18%, #ec4899 0, transparent 38%), radial-gradient(circle at 88% 28%, #06b6d4 0, transparent 38%),
+    radial-gradient(circle at 55% 95%, #f59e0b 0, transparent 42%), linear-gradient(135deg, #1e1b4b, #5b21b6);
+}
+[data-skin="glass"] :is(.lp, .ws, .shop, .docs) { background: transparent; }
+[data-skin="glass"] :is(.card, .adm-side, .adm-top, .adm-tabsbar, .lp-nav, .lp-cell, .lp-tier, .lp-quote, .lp-faq details, .ws-side, .ws-card, .ws-head, .shop-head, .docs-top, .feed-card, .ios-group, .tabbar, .detail-sheet, .order-entry, .pop, .adm-drawer, .browser-bar, .input, .chat-input, .detail-bar) {
+  backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+[data-skin="glass"] .browser-bar { background: rgba(255, 255, 255, .1); }
+[data-skin="glass"] .adm-menu.on { background: rgba(255, 255, 255, .2); color: #fff; }
+[data-skin="glass"] .adm-menu.on::before { background: #fff; }
+[data-skin="glass"] .lp-stats { background: rgba(255, 255, 255, .14); color: #fff; backdrop-filter: blur(18px); }
+[data-skin="glass"] .lp-cell-e { background: rgba(0, 0, 0, .25); }
+
+/* ---------- 新拟态 Neumorphism ---------- */
+[data-skin="neu"] :is(.admin, .browser, .phone) {
+  color-scheme: light;
+  --bg: #e0e5ec; --bg-2: #d5dbe3; --card: #e0e5ec; --card-2: #e0e5ec; --fg: #3d4757; --fg-2: #566173; --fg-3: #7b8798; --muted: #9aa5b5;
+  --border: transparent; --border-2: #c8d0da; --hover: rgba(163, 177, 198, .18);
+  --shadow-sm: 3px 3px 6px #a3b1c6, -3px -3px 6px #ffffff; --shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+  --shadow-lg: 10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff; --shadow-xl: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
+  --r-card: 18px; --r-ctl: 12px; --r-tag: 999px; --radius: 18px; --grid: #d1d9e6;
+  --ios-bg: #e0e5ec; --ios-card: #e0e5ec; --ios-fg: #3d4757; --ios-fg2: #7b8798; --ios-sep: #cdd5e0; --ios-fill: rgba(163, 177, 198, .25);
+}
+[data-skin="neu"] :is(.card, .ws-card, .lp-cell, .lp-tier, .lp-quote, .lp-faq details, .feed-card, .ios-group, .order-entry, .shop-review) { border-color: transparent; box-shadow: var(--shadow); }
+[data-skin="neu"] :is(.adm-side, .adm-top, .adm-tabsbar, .ws-side, .browser-bar) { border-color: transparent; box-shadow: none; }
+[data-skin="neu"] .btn:not(.btn-text):not(.btn-ghost) { border-color: transparent; box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff; }
+[data-skin="neu"] .btn:not(.btn-text):not(.btn-ghost):active { box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff; }
+[data-skin="neu"] :is(.input, .adm-search, .ws-search, .shop-search, .docs-search, .ios-search) { border-color: transparent; box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff; background: #e0e5ec; }
+[data-skin="neu"] .seg { box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff; background: #e0e5ec; }
+[data-skin="neu"] .seg button.on { box-shadow: 3px 3px 6px #a3b1c6, -3px -3px 6px #ffffff; background: #e0e5ec; }
+[data-skin="neu"] .adm-menu.on { background: #e0e5ec; box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff; }
+[data-skin="neu"] .adm-menu.on::before { display: none; }
+[data-skin="neu"] .tbl th { background: transparent; }
+[data-skin="neu"] .tbl td { border-bottom-color: #d1d9e6; }
+
+/* ---------- 新野兽派 Neo-Brutalism ---------- */
+[data-skin="brutal"] :is(.admin, .browser, .phone) {
+  color-scheme: light;
+  --bg: #fffbeb; --bg-2: #fef3c7; --card: #ffffff; --card-2: #fff7d6; --fg: #000000; --fg-2: #1f1f1f; --fg-3: #404040; --muted: #737373;
+  --border: #000000; --border-2: #000000; --hover: rgba(0, 0, 0, .06);
+  --shadow-sm: 3px 3px 0 #000; --shadow: 4px 4px 0 #000; --shadow-lg: 6px 6px 0 #000; --shadow-xl: 8px 8px 0 #000;
+  --r-card: 8px; --r-ctl: 6px; --r-tag: 4px; --radius: 8px;
+  --primary: #ff5c8a; --primary-fg: #000000; --s1: #3b82f6; --s2: #ff5c8a; --s3: #22c55e; --s4: #facc15; --grid: #f3e8c8;
+  --ios-bg: #fffbeb; --ios-card: #ffffff; --ios-fg: #000000; --ios-fg2: #404040; --ios-sep: #000000; --ios-fill: #fef3c7;
+}
+[data-skin="brutal"] :is(.admin, .browser-body) { background-color: #fffbeb; background-image: radial-gradient(rgba(0, 0, 0, .12) 1px, transparent 1.5px); background-size: 16px 16px; }
+[data-skin="brutal"] :is(.card, .ws-card, .lp-cell, .lp-tier, .lp-quote, .lp-faq details, .feed-card, .ios-group, .order-entry, .shop-review) { border: 2.5px solid #000; box-shadow: var(--shadow); }
+[data-skin="brutal"] .btn:not(.btn-text):not(.btn-ghost) { border: 2px solid #000; box-shadow: 3px 3px 0 #000; font-weight: 700; }
+[data-skin="brutal"] .btn:not(.btn-text):not(.btn-ghost):hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #000; color: inherit; }
+[data-skin="brutal"] .btn:not(.btn-text):not(.btn-ghost):active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #000; }
+[data-skin="brutal"] .input { border: 2px solid #000; }
+[data-skin="brutal"] .tag { border: 2px solid #000; font-weight: 700; }
+[data-skin="brutal"] .adm-side { background: #fde047; border-right: 3px solid #000; }
+[data-skin="brutal"] .adm-menu.on { background: #000; color: #fff; }
+[data-skin="brutal"] .adm-menu.on::before { display: none; }
+[data-skin="brutal"] :is(.adm-top, .adm-tabsbar, .browser-bar, .lp-nav, .ws-head, .shop-head, .docs-top) { border-bottom: 3px solid #000; }
+[data-skin="brutal"] :is(.adm-pagehead h2, .lp-hero h1, .lp-sec-head h2, .ios-large h2) { font-weight: 900; }
+[data-skin="brutal"] .lp-grad { background: #a3e635; color: #000; padding: 0 10px; border: 3px solid #000; box-shadow: 5px 5px 0 #000; }
+
+/* ---------- 暗黑科技 Dark Tech ---------- */
+[data-skin="darktech"] :is(.admin, .browser, .phone) {
+  color-scheme: dark;
+  --bg: #08090a; --bg-2: #151619; --card: #0f1012; --card-2: #131416; --fg: #ededed; --fg-2: #b4b4bb; --fg-3: #8b8d93; --muted: #5b5d63;
+  --border: #222327; --border-2: #2e2f34; --hover: rgba(255, 255, 255, .045); --overlay: rgba(0, 0, 0, .65);
+  --shadow-sm: none; --shadow: 0 0 0 1px #222327; --shadow-lg: 0 16px 40px -12px rgba(0, 0, 0, .8); --shadow-xl: 0 24px 60px -12px rgba(0, 0, 0, .9);
+  --r-card: 10px; --r-ctl: 7px; --r-tag: 6px; --radius: 10px; --grid: #1c1d20;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s7: #9085e9; --s8: #e66767;
+  --ios-bg: #000000; --ios-card: #121214; --ios-fg: #ffffff; --ios-fg2: rgba(235, 235, 245, .6); --ios-sep: #26272b; --ios-fill: rgba(255, 255, 255, .08);
+}
+[data-skin="darktech"] :is(.admin, .browser-body) {
+  background-color: #08090a;
+  background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+[data-skin="darktech"] .card { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04); }
+[data-skin="darktech"] .btn-primary { box-shadow: 0 0 0 1px var(--primary), 0 0 24px -4px var(--primary); }
+[data-skin="darktech"] :is(.adm-kpi-val, .lp-price, .shop-price, .lp-stats b, .scr-digits) { font-family: var(--mono); letter-spacing: -.03em; }
+[data-skin="darktech"] .lp-stats { background: #111214; color: #ededed; border: 1px solid #222327; }
+
+/* ---------- 粘土拟态 Claymorphism ---------- */
+[data-skin="clay"] :is(.admin, .browser, .phone) {
+  color-scheme: light;
+  --bg: #fdf2f8; --bg-2: #fce7f3; --card: #ffffff; --card-2: #fff7fb; --fg: #3b0764; --fg-2: #581c87; --fg-3: #9d6fb5; --muted: #c4a3d6;
+  --border: transparent; --border-2: #f5d0e6; --hover: rgba(236, 72, 153, .06);
+  --shadow-sm: 4px 6px 12px rgba(157, 23, 77, .1), inset -3px -3px 6px rgba(157, 23, 77, .05), inset 3px 3px 6px rgba(255, 255, 255, .9);
+  --shadow: 8px 10px 20px rgba(157, 23, 77, .12), inset -5px -5px 10px rgba(157, 23, 77, .06), inset 5px 5px 10px rgba(255, 255, 255, .9);
+  --shadow-lg: 12px 16px 28px rgba(157, 23, 77, .16); --shadow-xl: 16px 22px 40px rgba(157, 23, 77, .2);
+  --r-card: 26px; --r-ctl: 999px; --r-tag: 999px; --radius: 26px;
+  --primary: #a855f7; --primary-fg: #ffffff; --s1: #a855f7; --s2: #f472b6; --s3: #34d399; --s4: #fbbf24; --grid: #fae3f0;
+  --ios-bg: #fdf2f8; --ios-card: #ffffff; --ios-fg: #3b0764; --ios-fg2: #9d6fb5; --ios-sep: #fbe4f0; --ios-fill: #fce7f3;
+  font-family: ui-rounded, "SF Pro Rounded", var(--font);
+}
+[data-skin="clay"] :is(.card, .ws-card, .lp-cell, .lp-tier, .lp-quote, .lp-faq details, .feed-card, .ios-group, .order-entry, .shop-review) { box-shadow: var(--shadow); border-color: transparent; }
+[data-skin="clay"] .btn:not(.btn-text):not(.btn-ghost) { border-color: transparent; box-shadow: var(--shadow-sm); }
+[data-skin="clay"] .btn-primary { box-shadow: 6px 8px 14px color-mix(in srgb, var(--primary) 40%, transparent), inset -4px -4px 8px rgba(0, 0, 0, .15), inset 4px 4px 8px rgba(255, 255, 255, .35) !important; }
+[data-skin="clay"] .input { border-color: transparent; box-shadow: inset 3px 3px 6px rgba(157, 23, 77, .08); background: #fff; border-radius: 14px; }
+[data-skin="clay"] :is(.adm-side, .adm-top, .adm-tabsbar, .ws-side, .browser-bar) { border-color: transparent; }
+
+/* ---------- Material 3 ---------- */
+[data-skin="m3"] :is(.admin, .browser, .phone) {
+  color-scheme: light;
+  --bg: color-mix(in srgb, var(--primary) 4%, #fffbfe); --bg-2: color-mix(in srgb, var(--primary) 12%, #fffbfe);
+  --card: color-mix(in srgb, var(--primary) 7%, #fffbfe); --card-2: color-mix(in srgb, var(--primary) 10%, #fffbfe);
+  --fg: #1d1b20; --fg-2: #49454f; --fg-3: #79747e; --muted: #938f99; --border: transparent; --border-2: #cac4d0; --hover: color-mix(in srgb, var(--primary) 8%, transparent);
+  --shadow-sm: none; --shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 1px 3px 1px rgba(0, 0, 0, .08); --shadow-lg: 0 2px 6px 2px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .18); --shadow-xl: 0 4px 8px 3px rgba(0, 0, 0, .12), 0 1px 3px rgba(0, 0, 0, .2);
+  --r-card: 16px; --r-ctl: 999px; --r-tag: 8px; --radius: 16px;
+  --ios-bg: color-mix(in srgb, var(--primary) 4%, #fffbfe); --ios-card: color-mix(in srgb, var(--primary) 9%, #fffbfe); --ios-fg: #1d1b20; --ios-fg2: #49454f; --ios-sep: transparent; --ios-fill: color-mix(in srgb, var(--primary) 12%, #fffbfe);
+  font-family: Roboto, var(--font);
+}
+[data-skin="m3"] .btn:not(.btn-primary):not(.btn-text):not(.btn-ghost):not(.btn-danger) { background: color-mix(in srgb, var(--primary) 14%, #fff); color: color-mix(in srgb, var(--primary) 70%, #000); border-color: transparent; }
+[data-skin="m3"] .btn-primary { box-shadow: none; }
+[data-skin="m3"] .input { border: 1px solid #79747e; border-radius: 4px; background: transparent; }
+[data-skin="m3"] .adm-menu, [data-skin="m3"] .ws-nav a { border-radius: 999px; }
+[data-skin="m3"] .adm-menu.on { background: color-mix(in srgb, var(--primary) 18%, #fff); color: #1d1b20; }
+[data-skin="m3"] .adm-menu.on::before { display: none; }
+[data-skin="m3"] :is(.adm-side, .adm-top, .adm-tabsbar, .ws-side, .browser-bar, .card) { border-color: transparent; }
+
+/* ---------- 赛博朋克 Cyberpunk ---------- */
+[data-skin="cyber"] :is(.admin, .browser, .phone) {
+  color-scheme: dark;
+  --bg: #0d0221; --bg-2: #1a0b3a; --card: #13072e; --card-2: #1a0b3a; --fg: #e0f7ff; --fg-2: #b8e8f5; --fg-3: #7fb8d0; --muted: #5a7a9a;
+  --border: rgba(5, 217, 232, .3); --border-2: rgba(5, 217, 232, .5); --hover: rgba(5, 217, 232, .08); --overlay: rgba(13, 2, 33, .7);
+  --shadow-sm: 0 0 0 1px rgba(5, 217, 232, .25); --shadow: 0 0 16px rgba(255, 42, 109, .15); --shadow-lg: 0 0 30px rgba(5, 217, 232, .2); --shadow-xl: 0 0 40px rgba(255, 42, 109, .25);
+  --r-card: 0px; --r-ctl: 0px; --r-tag: 0px; --radius: 0px;
+  --primary: #ff2a6d; --primary-fg: #0d0221; --s1: #05d9e8; --s2: #ff2a6d; --s3: #7700ff; --s4: #fff200; --grid: rgba(5, 217, 232, .15);
+  --success: #00ff9f; --warning: #fff200; --danger: #ff2a6d; --info: #05d9e8;
+  --ios-bg: #0d0221; --ios-card: #13072e; --ios-fg: #e0f7ff; --ios-fg2: #7fb8d0; --ios-sep: rgba(5, 217, 232, .3); --ios-fill: rgba(5, 217, 232, .12);
+  font-family: var(--mono);
+}
+[data-skin="cyber"] :is(.admin, .browser-body) { background-color: #0d0221; background-image: repeating-linear-gradient(0deg, rgba(5, 217, 232, .04) 0 1px, transparent 1px 3px); }
+[data-skin="cyber"] .btn:not(.btn-text):not(.btn-ghost) { clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); letter-spacing: .04em; }
+[data-skin="cyber"] .btn-primary { box-shadow: 0 0 18px rgba(255, 42, 109, .6); }
+[data-skin="cyber"] .card { border-color: rgba(5, 217, 232, .35); box-shadow: inset 0 0 0 1px rgba(255, 42, 109, .08); }
+[data-skin="cyber"] :is(.adm-pagehead h2, .lp-hero h1, .lp-sec-head h2, .ios-large h2) { color: #ff2a6d; text-shadow: 0 0 14px rgba(255, 42, 109, .6); }
+[data-skin="cyber"] .lp-grad { background: none; color: #05d9e8; text-shadow: 0 0 14px rgba(5, 217, 232, .7); }
+[data-skin="cyber"] .adm-menu.on { background: rgba(255, 42, 109, .14); color: #ff2a6d; }
+[data-skin="cyber"] .lp-stats { background: #13072e; color: #e0f7ff; border: 1px solid rgba(5, 217, 232, .35); }

@@ -10,12 +10,13 @@
     </div>`;
   const homeInd = (first) => `<div class="home-ind"${first ? ' data-ui="主屏指示条 · Home Indicator"' : ''}></div>`;
 
-  const phone = (cls, inner, title, desc, first = false) => `
+  const phone = (cls, inner, title, desc, view, first = false) => `
     <figure class="phone-item rv">
       <div class="phone"${first ? ' data-ui="设备外框 · Device Frame"' : ''}>
         <div class="phone-screen ${cls}">${statusBar(first)}${inner}${homeInd(first)}</div>
       </div>
-      <figcaption><b>${title}</b><span>${desc}</span></figcaption>
+      <figcaption><b>${title}</b><span>${desc}</span>
+        <button class="btn btn-sm prompt-mini" type="button" data-act="prompt" data-kind="form" data-view="${view}">${I('sparkle', 13)}复制该屏提示词</button></figcaption>
     </figure>`;
 
   const tabbar = (active, first) => `
@@ -240,13 +241,13 @@
 
   Atlas.mount('appMock', `
     <div class="phones">
-      ${phone('ios', feed, '首页 Feed', 'iOS 风格 · 大标题 + 快拍 + 轮播 + 卡片流 + 标签栏', true)}
-      ${phone('ios detail-screen', detail, '详情页 Detail', '沉浸式头图 + 内容面板 + 底部操作栏')}
-      ${phone('ios chat-screen', chat, '聊天 Chat', '气泡、语音、链接卡片、输入中；可输入并发送')}
-      ${phone('ios prof-screen', profile, '个人中心 Profile', '分组列表 + 开关；“我的收藏”可向左滑动')}
-      ${phone('md', material, 'Material 3 · Android', '顶部应用栏、纸片、卡片、扩展 FAB、导航栏；点按有波纹')}
-      ${phone('ios ov-screen', overlays, '交互层 Overlays', '底部弹层 / 动作面板 / 对话框 / Toast / 下拉刷新 / 骨架屏')}
-      ${phone('wx', mini, '小程序 Mini Program', '胶囊按钮、通知栏、金刚区、优惠券、瀑布流、购物车栏')}
+      ${phone('ios', feed, '首页 Feed', 'iOS 风格 · 大标题 + 快拍 + 轮播 + 卡片流 + 标签栏', 'app-feed', true)}
+      ${phone('ios detail-screen', detail, '详情页 Detail', '沉浸式头图 + 内容面板 + 底部操作栏', 'app-detail')}
+      ${phone('ios chat-screen', chat, '聊天 Chat', '气泡、语音、链接卡片、输入中；可输入并发送', 'app-chat')}
+      ${phone('ios prof-screen', profile, '个人中心 Profile', '分组列表 + 开关；“我的收藏”可向左滑动', 'app-profile')}
+      ${phone('md', material, 'Material 3 · Android', '顶部应用栏、纸片、卡片、扩展 FAB、导航栏；点按有波纹', 'app-material')}
+      ${phone('ios ov-screen', overlays, '交互层 Overlays', '底部弹层 / 动作面板 / 对话框 / Toast / 下拉刷新 / 骨架屏', 'app-overlays')}
+      ${phone('wx', mini, '小程序 Mini Program', '胶囊按钮、通知栏、金刚区、优惠券、瀑布流、购物车栏', 'app-mini')}
       <figure class="phone-item app-terms-card rv">
         <div class="app-terms">
           <b>App 专属术语</b>

@@ -1,0 +1,36 @@
+/* ============ 提示词按钮与预览弹窗 ============ */
+.prompt-btn {
+  display: inline-flex; align-items: center; gap: 4px; height: 24px; padding: 0 9px; border-radius: 99px; flex-shrink: 0;
+  border: 1px solid var(--primary-border); background: var(--primary-soft); color: var(--primary);
+  font: 600 11.5px var(--font); cursor: pointer; white-space: nowrap; transition: background .2s, color .2s, transform .15s;
+}
+.prompt-btn:hover { background: var(--primary); color: var(--primary-fg); }
+.prompt-btn:active { transform: scale(.95); }
+.cmp-head .prompt-btn { margin-left: auto; align-self: center; }
+.cmp-head .cmp-alias + .prompt-btn { margin-left: 6px; }
+.style-name .prompt-btn { margin-left: 6px; }
+.style-name > span { margin-left: auto; }
+.wf-meta .prompt-btn { margin-left: 6px; }
+.mo-sub .prompt-btn { height: 26px; }
+.mo-sub .mo-how { margin-left: auto; }
+.pal-actions { display: flex; gap: 8px; margin-top: auto; align-items: center; }
+.pal-actions .pal-apply { flex: 1; margin: 0; }
+.pal-actions .prompt-btn { height: 28px; }
+.sub-head .prompt-btn { height: 34px; padding: 0 14px; font-size: 13px; }
+
+.plat-switch { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.plat-switch .prompt-cta { order: 2; margin-left: auto; }
+.phone-item figcaption .prompt-mini { justify-self: center; margin-top: 6px; color: var(--primary); border-color: var(--primary-border); }
+
+.prompt-modal { width: min(900px, 94vw); display: flex; flex-direction: column; max-height: 86vh; }
+.prompt-modal header b { display: flex; align-items: center; gap: 8px; }
+.prompt-modal header b svg { color: var(--primary); }
+.prompt-modal header small { display: block; font-size: 12px; color: var(--fg-3); margin-top: 2px; }
+.pm-bar { display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.pm-count { font-size: 12px; }
+.pm-text {
+  margin: 0; padding: 16px 18px; overflow: auto; flex: 1; min-height: 200px; max-height: 60vh; white-space: pre-wrap; word-break: break-word;
+  font: 12.5px/1.75 var(--mono); color: var(--fg); background: var(--card-2);
+}
+.pm-foot { display: flex; align-items: flex-start; gap: 8px; padding: 12px 18px; border-top: 1px solid var(--border); font-size: 12px; color: var(--fg-3); line-height: 1.6; }
+.pm-foot svg { margin-top: 3px; color: var(--primary); }

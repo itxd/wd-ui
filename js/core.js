@@ -74,6 +74,11 @@
       return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     },
 
+    /* “提示词”按钮：点击后按 kind 生成提示词（见 js/prompts/prompt-ui.js） */
+    promptBtn(kind, attrs = '', label = '提示词') {
+      return `<button type="button" class="prompt-btn" data-act="prompt" data-kind="${kind}"${attrs ? ` ${attrs}` : ''} title="生成可复制的提示词">${Atlas.icon('sparkle', 12)}${label}</button>`;
+    },
+
     /* 根据背景色计算前景色（白或深色） */
     readableOn(hex) {
       const h = hex.replace('#', '');

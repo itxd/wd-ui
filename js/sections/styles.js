@@ -191,7 +191,7 @@
           <article class="style-card rv" id="st-${s.id}" data-tags="${s.tags}" data-zh="${s.zh}" data-en="${s.en}" data-cat="UI 风格">
             <div class="style-demo sd-${s.id}">${s.demo}</div>
             <div class="style-meta">
-              <div class="style-name"><b>${s.zh}</b><em>${s.en}</em><span>${s.era}</span></div>
+              <div class="style-name"><b>${s.zh}</b><em>${s.en}</em><span>${s.era}</span>${Atlas.promptBtn('style', '', '风格提示词')}</div>
               <ul>${s.feats.map((f) => `<li>${f}</li>`).join('')}</ul>
               <div class="row-wrap">${s.css.map((c) => `<code class="code-chip">${c}</code>`).join('')}</div>
               <dl><dt>适用</dt><dd>${s.fit}</dd><dt>代表</dt><dd>${s.ref}</dd></dl>

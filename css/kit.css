@@ -3,7 +3,7 @@
 /* 按钮 Button */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  height: 34px; padding: 0 14px; border-radius: 8px; border: 1px solid var(--border-2);
+  height: 34px; padding: 0 14px; border-radius: var(--r-ctl); border: 1px solid var(--border-2);
   background: var(--card); color: var(--fg); font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap;
   transition: background .2s, border-color .2s, color .2s, box-shadow .2s, transform .12s, filter .2s;
   position: relative; overflow: hidden; user-select: none; text-decoration: none; line-height: 1;
@@ -27,9 +27,9 @@
 .btn-danger-ghost:hover { color: var(--danger); border-color: var(--danger); background: color-mix(in srgb, var(--danger) 8%, transparent); }
 .btn-gradient { background: linear-gradient(135deg, var(--primary), #ec4899); color: #fff; border: 0; }
 .btn-gradient:hover { color: #fff; filter: saturate(1.2) brightness(1.05); }
-.btn-xs { height: 24px; padding: 0 8px; font-size: 12px; border-radius: 6px; gap: 4px; }
-.btn-sm { height: 28px; padding: 0 10px; font-size: 12px; border-radius: 7px; }
-.btn-lg { height: 44px; padding: 0 22px; font-size: 15px; border-radius: 11px; }
+.btn-xs { height: 24px; padding: 0 8px; font-size: 12px; border-radius: calc(var(--r-ctl) * .75); gap: 4px; }
+.btn-sm { height: 28px; padding: 0 10px; font-size: 12px; border-radius: calc(var(--r-ctl) * .875); }
+.btn-lg { height: 44px; padding: 0 22px; font-size: 15px; border-radius: calc(var(--r-ctl) * 1.375); }
 .btn-pill { border-radius: 999px; }
 .btn-icon { width: 34px; padding: 0; }
 .btn-sm.btn-icon { width: 28px; }
@@ -41,14 +41,14 @@
 /* 按钮组 / 分裂按钮 */
 .btn-group { display: inline-flex; }
 .btn-group .btn { border-radius: 0; margin-left: -1px; }
-.btn-group .btn:first-child { border-radius: 8px 0 0 8px; margin-left: 0; }
-.btn-group .btn:last-child { border-radius: 0 8px 8px 0; }
+.btn-group .btn:first-child { border-radius: var(--r-ctl) 0 0 var(--r-ctl); margin-left: 0; }
+.btn-group .btn:last-child { border-radius: 0 var(--r-ctl) var(--r-ctl) 0; }
 .btn-group .btn:hover { z-index: 1; }
 .btn-group .btn-primary + .btn-primary { border-left-color: color-mix(in srgb, #fff 30%, var(--primary)); }
 
 /* 输入框 Input */
 .input, .textarea {
-  width: 100%; height: 34px; border: 1px solid var(--border-2); border-radius: 8px; background: var(--card);
+  width: 100%; height: 34px; border: 1px solid var(--border-2); border-radius: var(--r-ctl); background: var(--card);
   padding: 0 10px; color: var(--fg); font: inherit; font-size: 13px; outline: none;
   transition: border-color .2s, box-shadow .2s, background .2s;
 }
@@ -69,8 +69,8 @@
   display: flex; align-items: center; padding: 0 10px; background: var(--card-2); border: 1px solid var(--border-2);
   color: var(--fg-3); font-size: 12px; white-space: nowrap;
 }
-.input-addon > span:first-child { border-radius: 8px 0 0 8px; border-right: 0; }
-.input-addon > span:last-child { border-radius: 0 8px 8px 0; border-left: 0; }
+.input-addon > span:first-child { border-radius: var(--r-ctl) 0 0 var(--r-ctl); border-right: 0; }
+.input-addon > span:last-child { border-radius: 0 var(--r-ctl) var(--r-ctl) 0; border-left: 0; }
 .input-addon > .input { border-radius: 0; }
 .form-label { font-size: 12.5px; color: var(--fg-2); font-weight: 500; margin-bottom: 6px; display: block; }
 .form-label .req { color: var(--danger); margin-right: 2px; }
@@ -82,7 +82,7 @@
 
 /* 标签 Tag */
 .tag {
-  display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-radius: 6px;
+  display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 8px; border-radius: var(--r-tag);
   font-size: 12px; line-height: 1; background: var(--bg-2); color: var(--fg-2); border: 1px solid var(--border); white-space: nowrap;
 }
 .tag-primary { background: var(--primary-soft); color: var(--primary); border-color: var(--primary-border); }
@@ -183,9 +183,9 @@
 .progress > i { display: block; height: 100%; width: var(--v, 50%); background: var(--c, var(--primary)); border-radius: inherit; transition: width .6s var(--ease-out); }
 
 /* 分段控制器 Segmented */
-.seg { display: inline-flex; padding: 3px; border-radius: 9px; background: var(--bg-2); gap: 2px; position: relative; }
+.seg { display: inline-flex; padding: 3px; border-radius: calc(var(--r-ctl) + 1px); background: var(--bg-2); gap: 2px; position: relative; }
 .seg button {
-  border: 0; background: none; padding: 4px 12px; border-radius: 7px; color: var(--fg-2); cursor: pointer; font-size: 12.5px;
+  border: 0; background: none; padding: 4px 12px; border-radius: calc(var(--r-ctl) - 1px); color: var(--fg-2); cursor: pointer; font-size: 12.5px;
   transition: background .2s, color .2s, box-shadow .2s; white-space: nowrap;
 }
 .seg button:hover { color: var(--fg); }
@@ -229,7 +229,7 @@
 /* 分页 Pagination */
 .pager { display: flex; align-items: center; gap: 4px; font-size: 13px; flex-wrap: wrap; }
 .pager button {
-  min-width: 30px; height: 30px; padding: 0 6px; border-radius: 7px; border: 1px solid var(--border); background: var(--card);
+  min-width: 30px; height: 30px; padding: 0 6px; border-radius: calc(var(--r-ctl) - 1px); border: 1px solid var(--border); background: var(--card);
   cursor: pointer; color: var(--fg-2); display: grid; place-items: center; font-variant-numeric: tabular-nums; transition: all .15s;
 }
 .pager button:hover { border-color: var(--primary); color: var(--primary); }
@@ -244,7 +244,7 @@
 .crumb .sep { color: var(--muted); }
 
 /* 卡片 */
-.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-card); box-shadow: var(--card-shadow, none); }
 .card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
 .card-head h4 { font-size: 14px; font-weight: 600; }
 .card-body { padding: 16px; }

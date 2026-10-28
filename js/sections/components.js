@@ -16,7 +16,7 @@
   /* 组件卡片：w 为占列数（1–3） */
   Atlas.cmpGrid = (cat, items) => `<div class="cmp-grid">${items.map((c) => `
     <div class="cmp rv${c.w ? ` w${c.w}` : ''}" id="c-${c.id}" data-zh="${c.zh}" data-en="${c.en}" data-alias="${c.alias || ''}" data-cat="组件 · ${cat}">
-      <div class="cmp-head"><b>${c.zh}</b><em>${c.en}</em>${c.alias ? `<span class="cmp-alias">${c.alias}</span>` : ''}</div>
+      <div class="cmp-head"><b>${c.zh}</b><em>${c.en}</em>${c.alias ? `<span class="cmp-alias">${c.alias}</span>` : ''}${Atlas.promptBtn('cmp')}</div>
       <div class="cmp-demo${c.pad === false ? ' no-pad' : ''}">${c.html}</div>
       ${c.note ? `<p class="cmp-note">${c.note}</p>` : ''}
     </div>`).join('')}</div>`;

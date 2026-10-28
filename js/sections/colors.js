@@ -39,7 +39,7 @@
           <span class="tag tag-primary">标签</span>
           <div class="progress"><i style="--v:68%"></i></div>
         </div>
-        <button class="btn btn-sm btn-block pal-apply" type="button" data-act="applyAccent" data-c="${p}">${I('palette', 14)}设为全站主题色</button>
+        <div class="pal-actions"><button class="btn btn-sm pal-apply" type="button" data-act="applyAccent" data-c="${p}">${I('palette', 14)}设为主题色</button>${Atlas.promptBtn('palette', '', '配色提示词')}</div>
       </div>
     </article>`;
   };

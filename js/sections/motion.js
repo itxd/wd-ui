@@ -8,7 +8,7 @@
       <div class="mo-stage${m.replay ? ' run' : ''}${m.stage ? ` ${m.stage}` : ''}"${m.replay ? ' data-replay' : ''}>${m.html}</div>
       <div class="mo-meta">
         <div class="mo-title"><b>${m.zh}</b><em>${m.en}</em></div>
-        <div class="mo-sub"><code>${m.tech}</code><span class="mo-how">${I(hows[m.how][0], 11)}${hows[m.how][1]}</span>
+        <div class="mo-sub"><code>${m.tech}</code><span class="mo-how">${I(hows[m.how][0], 11)}${hows[m.how][1]}</span>${Atlas.promptBtn('motion')}
           ${m.replay ? `<button type="button" class="mo-replay" data-act="moReplay" aria-label="重播">${I('refresh', 13)}</button>` : ''}</div>
       </div>
     </div>`;
@@ -139,6 +139,8 @@
     { id: 'elastic', zh: '弹性拖拽', en: 'Elastic Drag', tech: '松手弹簧回位', how: 'drag', html: '<div class="fx-elastic"><span class="el-ball" data-elastic></span><small class="muted">拖动小球后松手</small></div>' },
   ];
 
+  Atlas.motionCatalog = { eases, micro, loaders, enters, enterItems, scrollItems, textItems, ambient, gesture };
+
   Atlas.mount('motion', `
     <div class="wrap">
       ${Atlas.head({
@@ -164,10 +166,10 @@
       ${Atlas.sub({ title: '微交互', en: 'Micro-interactions', desc: '鼠标悬停、点击、切换状态时的小动画。它们让用户确认“我的操作被收到了”。' })}
       ${grid('微交互', micro)}
 
-      ${Atlas.sub({ title: '加载', en: 'Loading', desc: '等待超过 300ms 才显示加载动画，超过 1 秒给出进度或骨架屏，超过 10 秒说明原因并允许取消。' })}
+      ${Atlas.sub({ title: '加载', en: 'Loading', desc: '等待超过 300ms 才显示加载动画，超过 1 秒给出进度或骨架屏，超过 10 秒说明原因并允许取消。', right: Atlas.promptBtn('motion', 'data-target="m-loaders"', '复制全部加载动画提示词') })}
       <div class="loaders rv" id="m-loaders" data-zh="加载动画" data-en="Loaders" data-cat="动效 · 加载">${loaders.map(([zh, en, h]) => `<div class="loader-cell"><div class="loader-stage">${h}</div><b>${zh}</b><small>${en}</small></div>`).join('')}</div>
 
-      ${Atlas.sub({ title: '入场与转场', en: 'Enter & Transition', desc: '元素出现、消失和页面切换的方式。点击任意格子重播，或点击“全部重播”。', right: `<button class="btn" type="button" data-act="enterReplay">${I('refresh', 14)}全部重播</button>` })}
+      ${Atlas.sub({ title: '入场与转场', en: 'Enter & Transition', desc: '元素出现、消失和页面切换的方式。点击任意格子重播，或点击“全部重播”。', right: `<div class="row">${Atlas.promptBtn('motion', 'data-target="m-enter"', '复制入场动画提示词')}<button class="btn" type="button" data-act="enterReplay">${I('refresh', 14)}全部重播</button></div>` })}
       <div class="enter-grid rv" id="m-enter" data-zh="入场动画" data-en="Entrance Animations" data-cat="动效 · 入场">${enters.map(([zh, en, cls]) => `<button type="button" class="enter-cell" data-act="enterOne"><span class="enter-stage run"><i class="enter-box ${cls}"></i></span><b>${zh}</b><small>${en}</small></button>`).join('')}</div>
       ${grid('转场', enterItems)}
 

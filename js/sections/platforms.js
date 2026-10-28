@@ -64,6 +64,23 @@
     ['代表组件库', 'Ant Design、Element Plus、Arco', 'shadcn/ui、Tailwind UI、Radix', 'HIG、Material 3、Vant、WeUI'],
   ];
 
+  /* 产品形态示例可切换的 UI 风格皮肤：[风格 id, 名称, 色样] */
+  const skins = [
+    ['saas', '现代 SaaS（默认）', 'linear-gradient(135deg,#fff 50%,#4f46e5 50%)'], ['flat', '扁平', '#3498db'], ['min', '极简', 'linear-gradient(135deg,#fafaf9 50%,#1c1917 50%)'],
+    ['glass', '玻璃拟态', 'linear-gradient(135deg,#ec4899,#5b21b6,#06b6d4)'], ['neu', '新拟态', '#e0e5ec'], ['brutal', '新野兽派', 'linear-gradient(135deg,#fde047 50%,#ff5c8a 50%)'],
+    ['darktech', '暗黑科技', 'linear-gradient(135deg,#08090a 55%,#6366f1)'], ['clay', '粘土拟态', 'linear-gradient(135deg,#fdf2f8,#a855f7)'], ['m3', 'Material 3', '#eaddff'], ['cyber', '赛博朋克', 'linear-gradient(135deg,#0d0221 50%,#ff2a6d 50%)'],
+  ];
+  const paintSkinDesc = (id) => {
+    const sp = Atlas.styleSpecs[id];
+    document.getElementById('skinDesc').innerHTML = `<span>当前：<b>${sp.zh}</b> · ${sp.mood}</span><span>${sp.shape.split('；')[0]}</span>${id === 'saas' ? '' : `<a class="btn btn-text" href="#st-${id}">查看该风格 ${I('arrowR', 12)}</a>`}`;
+  };
+  Atlas.acts.skin = (el) => {
+    Atlas.acts.pick(el);
+    document.getElementById('platSkin').dataset.skin = el.dataset.skin;
+    paintSkinDesc(el.dataset.skin);
+  };
+  Atlas.onReady(() => paintSkinDesc('saas'));
+
   Atlas.mount('platforms', `
     <div class="wrap">
       ${Atlas.head({
@@ -74,15 +91,23 @@
         chips: ['布局骨架', '导航模式', '信息密度', '平台规范'],
       })}
       <div class="plat-switch rv">
+        <button class="btn btn-primary prompt-cta" type="button" data-act="prompt" data-kind="form">${I('sparkle', 15)}复制当前界面提示词</button>
         ${Atlas.tabs('plat', [
           { id: 'plat-admin', label: '管理后台', sub: 'Admin', icon: 'sidebar' },
           { id: 'plat-web', label: 'Web 应用', sub: 'Web App', icon: 'globe' },
           { id: 'plat-app', label: 'App 应用', sub: 'Mobile', icon: 'phone' },
         ])}
       </div>
-      ${Atlas.panel('plat', 'plat-admin', `${factCard('admin')}<div id="adminMock" class="mock-stage" data-form="管理后台"></div>`, true)}
-      ${Atlas.panel('plat', 'plat-web', `${factCard('web')}<div id="webMock" class="mock-stage" data-form="Web 应用"></div>`)}
-      ${Atlas.panel('plat', 'plat-app', `${factCard('app')}<div id="appMock" class="mock-stage" data-form="App 应用"></div>`)}
+      <div class="skin-bar rv">
+        <b>${I('layers', 15)}UI 风格</b>
+        <div class="skin-list">${skins.map(([id, t, sw], i) => `<button type="button" class="${i === 0 ? 'on' : ''}" data-act="skin" data-skin="${id}"><i style="--sw:${sw}"></i>${t}</button>`).join('')}</div>
+        <div class="skin-desc" id="skinDesc"></div>
+      </div>
+      <div id="platSkin" data-skin="saas">
+        ${Atlas.panel('plat', 'plat-admin', `${factCard('admin')}<div id="adminMock" class="mock-stage" data-form="管理后台"></div>`, true)}
+        ${Atlas.panel('plat', 'plat-web', `${factCard('web')}<div id="webMock" class="mock-stage" data-form="Web 应用"></div>`)}
+        ${Atlas.panel('plat', 'plat-app', `${factCard('app')}<div id="appMock" class="mock-stage" data-form="App 应用"></div>`)}
+      </div>
 
       ${Atlas.sub({ title: '三种形态对比', en: 'Comparison', desc: '同一个维度在三种形态下的典型取值。做设计评审时可以按这张表逐行核对。' })}
       <div class="panel compare-wrap rv">
