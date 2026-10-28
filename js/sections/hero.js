@@ -9,9 +9,33 @@
     { no: 'D5', icon: 'zap', title: '动效', desc: '缓动、微交互、加载、转场、滚动，决定“手感”。', count: 84, unit: '种动效' },
   ];
 
+  const REPO = 'itxd/wd-ui';
+  const cmd = (text) => `<div class="inst-cmd"><code>${Atlas.esc(text)}</code><button type="button" class="btn btn-ghost btn-xs" data-act="copy" data-copy="${Atlas.esc(text)}" aria-label="复制命令">${I('copy', 13)}复制</button></div>`;
+  const install = `
+    <div class="install rv" id="install">
+      <div class="inst-head">
+        <span class="inst-logo">${I('sparkle', 18)}</span>
+        <div class="inst-title"><b>wd-ui Skill</b><small>装进 Claude Code 等 AI 助手：按你的业务场景推荐 UI 风格、配色与组件，并生成精准设计提示词</small></div>
+        <span class="tag tag-success tag-round">MIT 开源 · 免费商用</span>
+        <a class="btn btn-sm" href="https://github.com/${REPO}" target="_blank" rel="noopener">${I('github', 14)}GitHub</a>
+      </div>
+      ${Atlas.tabs('inst', [
+        { id: 'inst-npx', label: 'skills CLI', sub: '通用' },
+        { id: 'inst-plugin', label: 'Claude Code 插件' },
+        { id: 'inst-manual', label: '手动安装' },
+        { id: 'inst-zip', label: '下载 ZIP' },
+      ], 'seg inst-tabs')}
+      ${Atlas.panel('inst', 'inst-npx', `${cmd(`npx skills add ${REPO}`)}<p class="inst-note">支持 Claude Code、Codex、Cursor、Gemini CLI 等多种 Agent，安装时按提示选择目标即可。</p>`, true)}
+      ${Atlas.panel('inst', 'inst-plugin', `${cmd(`/plugin marketplace add ${REPO}`)}${cmd('/plugin install wd-ui@wd-ui')}<p class="inst-note">在 Claude Code 对话框中依次输入这两条命令。</p>`)}
+      ${Atlas.panel('inst', 'inst-manual', `${cmd(`git clone https://github.com/${REPO}.git`)}${cmd('mkdir -p ~/.claude/skills && cp -r wd-ui/skills/wd-ui ~/.claude/skills/')}<p class="inst-note">复制到个人 skills 目录后，所有项目都可以使用；复制到项目的 .claude/skills/ 则只在该项目生效。</p>`)}
+      ${Atlas.panel('inst', 'inst-zip', `<div class="inst-cmd"><code>https://github.com/${REPO}/archive/refs/heads/main.zip</code><a class="btn btn-primary btn-xs" href="https://github.com/${REPO}/archive/refs/heads/main.zip">${I('download', 13)}下载</a></div><p class="inst-note">解压后把 skills/wd-ui 文件夹复制到 ~/.claude/skills/。</p>`)}
+      <div class="inst-try">${I('message', 14)}<span>安装后这样问：</span><code>我要做一个面向中小企业的进销存管理后台，帮我选 UI 风格并给出设计提示词</code><button type="button" class="btn btn-ghost btn-xs" data-act="copy" data-copy="我要做一个面向中小企业的进销存管理后台，帮我选 UI 风格并给出设计提示词">${I('copy', 13)}</button></div>
+    </div>`;
+
   Atlas.mount('top', `
     <div class="hero-bg"><div class="hero-grid"></div><i></i><i></i><i></i></div>
     <div class="wrap">
+      ${install}
       <span class="hero-eyebrow rv"><b>2026 版</b>一页看懂网页界面：形态 × 色系 × 风格 × 功能 × 动效</span>
       <h1 class="rv">网页 UI <span class="grad">图谱</span><br>Interface Atlas</h1>
       <p class="hero-lead rv">
