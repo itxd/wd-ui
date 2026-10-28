@@ -43,20 +43,20 @@ function loadSiteData() {
 const HEAD = (title, desc) => `<!-- 自动生成，请勿手改：node scripts/build.mjs（数据源：网站 js/ 目录） -->\n# ${title}\n\n${desc}\n`;
 
 function stylesMd(A) {
-  const order = ['saas', ...A.styles.map((s) => s.id)];
+  const order = Object.keys(A.styleSpecs);
   const meta = Object.fromEntries(A.styles.map((s) => [s.id, s]));
   const tagZh = { classic: '经典', texture: '质感', trend: '潮流', retro: '复古/艺术', tech: '科技', local: '本土' };
   const index = order.map((id) => {
     const sp = A.styleSpecs[id];
     const m = meta[id];
-    return `| \`${id}\` | ${sp.zh} | ${sp.en} | ${m ? m.tags.split(' ').map((t) => tagZh[t]).join(' / ') : '经典'} | ${sp.mood} | ${m ? m.fit : 'B 端系统、SaaS、工具类产品'} |`;
+    return `| \`${id}\` | ${sp.zh} | ${sp.en} | ${m ? m.tags.split(' ').map((t) => tagZh[t]).join(' / ') : '经典'} | ${sp.mood} | ${m ? m.fit : sp.fit} |`;
   }).join('\n');
   const body = order.map((id) => {
     const sp = A.styleSpecs[id];
     const m = meta[id];
     return [
       `## \`${id}\` ${sp.zh}（${sp.en}）`,
-      m ? `- 流行时期：${m.era}\n- 特征：${m.feats.join('；')}\n- 关键实现：${m.css.map((c) => `\`${c}\``).join('、')}\n- 适用：${m.fit}\n- 代表：${m.ref}\n- 在线样本：${SITE}#st-${id}` : `- 适用：B 端系统、SaaS、工具类产品（网站“产品形态”章节的默认风格）\n- 在线样本：${SITE}#platforms`,
+      m ? `- 流行时期：${m.era}\n- 特征：${m.feats.join('；')}\n- 关键实现：${m.css.map((c) => `\`${c}\``).join('、')}\n- 适用：${m.fit}\n- 代表：${m.ref}\n- 在线样本：${SITE}#st-${id}` : `- 适用：${sp.fit}\n- 在线样本：${SITE}#platforms（在“UI 风格”切换条中选择「${sp.zh}」）`,
       '',
       '```text',
       A.styleSpecText(id),

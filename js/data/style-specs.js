@@ -2,7 +2,7 @@
 (function () {
   const specs = {
     saas: {
-      zh: '现代 SaaS', en: 'Modern SaaS',
+      zh: '现代 SaaS', en: 'Modern SaaS', fit: 'B 端系统、SaaS、工具类产品',
       mood: '专业、清爽、可信、高效',
       colors: [['页面背景', '#F5F6F8'], ['卡片表面', '#FFFFFF'], ['主色', '#4F46E5（可换品牌色）'], ['正文', '#0B1220'], ['次要文字', '#6B7486'], ['边框', '#E4E7EC'], ['成功/警告/错误', '#16A34A / #F59E0B / #EF4444']],
       type: '无衬线 -apple-system / PingFang SC / Inter；标题 600–700，正文 14px/1.6，数字使用等宽数字（tabular-nums）',
@@ -40,7 +40,7 @@
     neu: {
       zh: '新拟态', en: 'Neumorphism',
       mood: '柔和、安静、触感、未来感',
-      colors: [['背景与表面（同色）', '#E0E5EC'], ['暗部阴影', '#A3B1C6'], ['亮部阴影', '#FFFFFF'], ['文字', '#3D4757 / 次要 #7B8798'], ['强调', '#A78BFA → #EC4899 渐变（少量）']],
+      colors: [['背景与表面（同色）', '#E0E5EC（经典）；更干净的浅色版 #F1F4F8'], ['暗部阴影', '#A3B1C6（浅色版用 #D3DAE5）'], ['亮部阴影', '#FFFFFF'], ['文字', '#3D4757 / 次要 #7B8798'], ['强调', '#A78BFA → #EC4899 渐变（少量）']],
       type: '无衬线，字重 500–600，颜色偏灰蓝',
       shape: '圆角 16–20px；凸起：8px 8px 16px #A3B1C6, -8px -8px 16px #FFFFFF；凹陷：inset 5px 5px 10px #A3B1C6, inset -5px -5px 10px #FFFFFF',
       layout: '元素与背景同色，靠一明一暗双阴影“挤出”轮廓；留白充足',
@@ -60,6 +60,18 @@
       motion: '背景光斑 10s 缓慢漂移；hover 时玻璃亮度 +4%',
       avoid: ['纯色或白色背景（看不出玻璃感）', '玻璃上放小号低对比文字'],
       kw: 'glassmorphism, frosted glass cards, backdrop blur, colorful gradient blobs background, white translucent borders',
+    },
+    glasslight: {
+      zh: '浅色玻璃', en: 'Light Glassmorphism', fit: 'SaaS 官网、AI 助手、金融 / 健康类 App、设置面板与浮层',
+      mood: '清透、明亮、柔和、现代',
+      colors: [['背景', '#F8FAFC → #EEF2FF 渐变 + 淡紫 rgba(165,180,252,.55) / 淡粉 rgba(249,168,212,.42) / 薄荷 rgba(153,246,228,.5) 大面积柔光'], ['玻璃面', 'rgba(255,255,255,.6)'], ['玻璃描边', 'rgba(255,255,255,.85) 1px'], ['正文', '#0F172A / 次要 #64748B'], ['主色', '品牌色（默认 #4F46E5）']],
+      type: '无衬线 Inter / PingFang SC，深色文字，标题 600–700',
+      shape: '圆角 16–20px；backdrop-filter: blur(18px) saturate(160%)；阴影 0 8px 28px rgba(31,41,90,.08)',
+      layout: '浅色柔光渐变铺底，半透明白色卡片叠放；比深色玻璃更克制，适合长时间阅读',
+      components: ['卡片：60% 白色磨砂 + 白色细边 + 极淡蓝紫阴影', '按钮：主色实心 / 白色磨砂次按钮', '导航：同样磨砂，选中项 85% 白底 + 轻阴影', '输入框：半透明白底，聚焦时主色描边'],
+      motion: '200–300ms 缓出；背景柔光可极慢漂移（20s）',
+      avoid: ['光斑饱和度过高（会显脏或花）', '浅色文字放在玻璃上', '玻璃层级超过 3 层'],
+      kw: 'light glassmorphism, frosted white cards, soft pastel gradient background, subtle blur, clean bright UI',
     },
     clay: {
       zh: '粘土拟态', en: 'Claymorphism',

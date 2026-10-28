@@ -1,7 +1,7 @@
 <!-- 自动生成，请勿手改：node scripts/build.mjs（数据源：网站 js/ 目录） -->
 # UI 风格库
 
-共 28 种风格。每种风格的“规格”块可以直接放进设计提示词的“视觉风格”部分。
+共 29 种风格。每种风格的“规格”块可以直接放进设计提示词的“视觉风格”部分。
 
 ## 索引
 
@@ -12,6 +12,7 @@
 | `skeuo` | 拟物化 | Skeuomorphism | 经典 / 质感 | 真实、可触摸、温暖、复古 | 音乐、相机、乐器、游戏道具 |
 | `neu` | 新拟态 | Neumorphism | 质感 / 潮流 | 柔和、安静、触感、未来感 | 智能家居、计算器、音乐播放器（对比度低，慎用于重要信息） |
 | `glass` | 玻璃拟态 | Glassmorphism | 质感 / 潮流 | 通透、轻盈、科技、高级 | 金融卡片、天气、音乐、系统浮层 |
+| `glasslight` | 浅色玻璃 | Light Glassmorphism | 经典 | 清透、明亮、柔和、现代 | SaaS 官网、AI 助手、金融 / 健康类 App、设置面板与浮层 |
 | `clay` | 粘土拟态 | Claymorphism | 质感 / 潮流 | 可爱、膨胀、亲和、玩具感 | 儿童教育、游戏化、轻社交、3D 图标 |
 | `brutal` | 新野兽派 | Neo-Brutalism | 潮流 / 复古/艺术 | 大胆、直率、反精致、个性 | 创意品牌、独立产品、年轻化营销 |
 | `min` | 极简主义 | Minimalism | 经典 | 克制、安静、高级、留白 | 高端品牌、作品集、奢侈品、设计工作室 |
@@ -37,8 +38,8 @@
 | `bauhaus` | 包豪斯 | Bauhaus | 复古/艺术 | 几何、功能、艺术 | 艺术展、品牌视觉、海报 |
 
 ## `saas` 现代 SaaS（Modern SaaS）
-- 适用：B 端系统、SaaS、工具类产品（网站“产品形态”章节的默认风格）
-- 在线样本：https://itxd.github.io/wd-ui/#platforms
+- 适用：B 端系统、SaaS、工具类产品
+- 在线样本：https://itxd.github.io/wd-ui/#platforms（在“UI 风格”切换条中选择「现代 SaaS」）
 
 ```text
 风格：现代 SaaS（Modern SaaS）
@@ -137,8 +138,8 @@
 风格：新拟态（Neumorphism）
 气质关键词：柔和、安静、触感、未来感
 配色：
-  - 背景与表面（同色）：#E0E5EC
-  - 暗部阴影：#A3B1C6
+  - 背景与表面（同色）：#E0E5EC（经典）；更干净的浅色版 #F1F4F8
+  - 暗部阴影：#A3B1C6（浅色版用 #D3DAE5）
   - 亮部阴影：#FFFFFF
   - 文字：#3D4757 / 次要 #7B8798
   - 强调：#A78BFA → #EC4899 渐变（少量）
@@ -182,6 +183,32 @@
 动效：背景光斑 10s 缓慢漂移；hover 时玻璃亮度 +4%
 避免：纯色或白色背景（看不出玻璃感）；玻璃上放小号低对比文字
 英文关键词（可用于 AI 绘图 / 检索）：glassmorphism, frosted glass cards, backdrop blur, colorful gradient blobs background, white translucent borders
+```
+
+## `glasslight` 浅色玻璃（Light Glassmorphism）
+- 适用：SaaS 官网、AI 助手、金融 / 健康类 App、设置面板与浮层
+- 在线样本：https://itxd.github.io/wd-ui/#platforms（在“UI 风格”切换条中选择「浅色玻璃」）
+
+```text
+风格：浅色玻璃（Light Glassmorphism）
+气质关键词：清透、明亮、柔和、现代
+配色：
+  - 背景：#F8FAFC → #EEF2FF 渐变 + 淡紫 rgba(165,180,252,.55) / 淡粉 rgba(249,168,212,.42) / 薄荷 rgba(153,246,228,.5) 大面积柔光
+  - 玻璃面：rgba(255,255,255,.6)
+  - 玻璃描边：rgba(255,255,255,.85) 1px
+  - 正文：#0F172A / 次要 #64748B
+  - 主色：品牌色（默认 #4F46E5）
+字体：无衬线 Inter / PingFang SC，深色文字，标题 600–700
+形状与层次：圆角 16–20px；backdrop-filter: blur(18px) saturate(160%)；阴影 0 8px 28px rgba(31,41,90,.08)
+布局：浅色柔光渐变铺底，半透明白色卡片叠放；比深色玻璃更克制，适合长时间阅读
+组件表现：
+  - 卡片：60% 白色磨砂 + 白色细边 + 极淡蓝紫阴影
+  - 按钮：主色实心 / 白色磨砂次按钮
+  - 导航：同样磨砂，选中项 85% 白底 + 轻阴影
+  - 输入框：半透明白底，聚焦时主色描边
+动效：200–300ms 缓出；背景柔光可极慢漂移（20s）
+避免：光斑饱和度过高（会显脏或花）；浅色文字放在玻璃上；玻璃层级超过 3 层
+英文关键词（可用于 AI 绘图 / 检索）：light glassmorphism, frosted white cards, soft pastel gradient background, subtle blur, clean bright UI
 ```
 
 ## `clay` 粘土拟态（Claymorphism）

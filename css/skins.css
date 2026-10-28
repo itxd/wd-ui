@@ -67,24 +67,39 @@
 [data-skin="min"] .adm-menu.on { background: none; text-decoration: underline; text-underline-offset: 4px; }
 [data-skin="min"] .btn-primary { box-shadow: none; }
 
-/* ---------- 玻璃拟态 Glassmorphism ---------- */
+/* ---------- 玻璃拟态：深色版（降低光斑饱和度）与浅色版 ---------- */
 [data-skin="glass"] :is(.admin, .browser, .phone) {
   color-scheme: dark;
-  --bg: #312e81; --bg-2: rgba(255, 255, 255, .12); --card: rgba(255, 255, 255, .14); --card-2: rgba(255, 255, 255, .08);
+  --bg: #2a2766; --bg-2: rgba(255, 255, 255, .12); --card: rgba(255, 255, 255, .13); --card-2: rgba(255, 255, 255, .08);
   --fg: #ffffff; --fg-2: rgba(255, 255, 255, .86); --fg-3: rgba(255, 255, 255, .66); --muted: rgba(255, 255, 255, .5);
-  --border: rgba(255, 255, 255, .26); --border-2: rgba(255, 255, 255, .4); --hover: rgba(255, 255, 255, .1); --overlay: rgba(15, 10, 40, .35);
+  --border: rgba(255, 255, 255, .24); --border-2: rgba(255, 255, 255, .36); --hover: rgba(255, 255, 255, .1); --overlay: rgba(15, 10, 40, .35);
   --shadow-sm: 0 4px 14px rgba(0, 0, 0, .12); --shadow: 0 8px 24px rgba(0, 0, 0, .18); --shadow-lg: 0 16px 40px rgba(0, 0, 0, .25); --shadow-xl: 0 24px 60px rgba(0, 0, 0, .35);
   --r-card: 18px; --r-ctl: 12px; --r-tag: 999px; --radius: 18px;
   --primary: #ffffff; --primary-fg: #312e81; --grid: rgba(255, 255, 255, .14);
   --s1: #f9a8d4; --s2: #67e8f9; --s3: #fde68a; --s4: #c4b5fd;
-  --ios-bg: transparent; --ios-card: rgba(255, 255, 255, .16); --ios-fg: #ffffff; --ios-fg2: rgba(255, 255, 255, .7); --ios-sep: rgba(255, 255, 255, .22); --ios-fill: rgba(255, 255, 255, .14);
+  --ios-bg: transparent; --ios-card: rgba(255, 255, 255, .15); --ios-fg: #ffffff; --ios-fg2: rgba(255, 255, 255, .7); --ios-sep: rgba(255, 255, 255, .22); --ios-fill: rgba(255, 255, 255, .14);
 }
 [data-skin="glass"] :is(.admin, .browser-body, .phone-screen.ios) {
-  background: radial-gradient(circle at 12% 18%, #ec4899 0, transparent 38%), radial-gradient(circle at 88% 28%, #06b6d4 0, transparent 38%),
-    radial-gradient(circle at 55% 95%, #f59e0b 0, transparent 42%), linear-gradient(135deg, #1e1b4b, #5b21b6);
+  background: radial-gradient(circle at 12% 18%, rgba(236, 72, 153, .45) 0, transparent 40%), radial-gradient(circle at 88% 28%, rgba(6, 182, 212, .4) 0, transparent 40%),
+    linear-gradient(140deg, #1e1b4b, #3b2a7a);
 }
-[data-skin="glass"] :is(.lp, .ws, .shop, .docs) { background: transparent; }
-[data-skin="glass"] :is(.card, .adm-side, .adm-top, .adm-tabsbar, .lp-nav, .lp-cell, .lp-tier, .lp-quote, .lp-faq details, .ws-side, .ws-card, .ws-head, .shop-head, .docs-top, .feed-card, .ios-group, .tabbar, .detail-sheet, .order-entry, .pop, .adm-drawer, .browser-bar, .input, .chat-input, .detail-bar) {
+[data-skin="glasslight"] :is(.admin, .browser, .phone) {
+  color-scheme: light;
+  --bg: #f4f6fb; --bg-2: rgba(255, 255, 255, .55); --card: rgba(255, 255, 255, .62); --card-2: rgba(255, 255, 255, .45);
+  --fg: #0f172a; --fg-2: #334155; --fg-3: #64748b; --muted: #94a3b8;
+  --border: rgba(255, 255, 255, .85); --border-2: rgba(148, 163, 184, .35); --hover: rgba(255, 255, 255, .55); --overlay: rgba(15, 23, 42, .18);
+  --shadow-sm: 0 2px 8px rgba(31, 41, 90, .05); --shadow: 0 8px 28px rgba(31, 41, 90, .08); --shadow-lg: 0 16px 40px rgba(31, 41, 90, .12); --shadow-xl: 0 24px 60px rgba(31, 41, 90, .16);
+  --r-card: 18px; --r-ctl: 12px; --r-tag: 999px; --radius: 18px; --grid: rgba(148, 163, 184, .2);
+  --ios-bg: transparent; --ios-card: rgba(255, 255, 255, .62); --ios-fg: #0f172a; --ios-fg2: #64748b; --ios-sep: rgba(148, 163, 184, .28); --ios-fill: rgba(255, 255, 255, .6);
+}
+[data-skin="glasslight"] :is(.admin, .browser-body, .phone-screen.ios) {
+  background: radial-gradient(circle at 10% 12%, rgba(165, 180, 252, .55) 0, transparent 42%), radial-gradient(circle at 90% 18%, rgba(249, 168, 212, .42) 0, transparent 42%),
+    radial-gradient(circle at 60% 100%, rgba(153, 246, 228, .5) 0, transparent 48%), linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+[data-skin="glasslight"] .card { box-shadow: var(--shadow); }
+[data-skin="glasslight"] .adm-menu.on { background: rgba(255, 255, 255, .85); box-shadow: var(--shadow-sm); }
+:is([data-skin="glass"], [data-skin="glasslight"]) :is(.lp, .ws, .shop, .docs) { background: transparent; }
+:is([data-skin="glass"], [data-skin="glasslight"]) :is(.card, .adm-side, .adm-top, .adm-tabsbar, .lp-nav, .lp-cell, .lp-tier, .lp-quote, .lp-faq details, .ws-side, .ws-card, .ws-head, .shop-head, .docs-top, .feed-card, .ios-group, .tabbar, .detail-sheet, .order-entry, .pop, .adm-drawer, .browser-bar, .input, .chat-input, .detail-bar) {
   backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
 }
 [data-skin="glass"] .browser-bar { background: rgba(255, 255, 255, .1); }
@@ -93,27 +108,27 @@
 [data-skin="glass"] .lp-stats { background: rgba(255, 255, 255, .14); color: #fff; backdrop-filter: blur(18px); }
 [data-skin="glass"] .lp-cell-e { background: rgba(0, 0, 0, .25); }
 
-/* ---------- 新拟态 Neumorphism ---------- */
+/* ---------- 新拟态 Neumorphism（提亮底色，阴影更轻） ---------- */
 [data-skin="neu"] :is(.admin, .browser, .phone) {
   color-scheme: light;
-  --bg: #e0e5ec; --bg-2: #d5dbe3; --card: #e0e5ec; --card-2: #e0e5ec; --fg: #3d4757; --fg-2: #566173; --fg-3: #7b8798; --muted: #9aa5b5;
-  --border: transparent; --border-2: #c8d0da; --hover: rgba(163, 177, 198, .18);
-  --shadow-sm: 3px 3px 6px #a3b1c6, -3px -3px 6px #ffffff; --shadow: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
-  --shadow-lg: 10px 10px 20px #a3b1c6, -10px -10px 20px #ffffff; --shadow-xl: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
-  --r-card: 18px; --r-ctl: 12px; --r-tag: 999px; --radius: 18px; --grid: #d1d9e6;
-  --ios-bg: #e0e5ec; --ios-card: #e0e5ec; --ios-fg: #3d4757; --ios-fg2: #7b8798; --ios-sep: #cdd5e0; --ios-fill: rgba(163, 177, 198, .25);
+  --bg: #f1f4f8; --bg-2: #e9edf3; --card: #f1f4f8; --card-2: #f1f4f8; --fg: #2f3a4b; --fg-2: #4b5768; --fg-3: #758195; --muted: #9ba6b6;
+  --border: transparent; --border-2: #dde3ec; --hover: rgba(207, 215, 227, .35);
+  --shadow-sm: 3px 3px 7px #d3dae5, -3px -3px 7px #ffffff; --shadow: 6px 6px 14px #d3dae5, -6px -6px 14px #ffffff;
+  --shadow-lg: 10px 10px 22px #d0d7e2, -10px -10px 22px #ffffff; --shadow-xl: 12px 12px 26px #cdd5e0, -12px -12px 26px #ffffff;
+  --r-card: 18px; --r-ctl: 12px; --r-tag: 999px; --radius: 18px; --grid: #e3e8ef;
+  --ios-bg: #f1f4f8; --ios-card: #f1f4f8; --ios-fg: #2f3a4b; --ios-fg2: #758195; --ios-sep: #e1e6ee; --ios-fill: rgba(207, 215, 227, .4);
 }
 [data-skin="neu"] :is(.card, .ws-card, .lp-cell, .lp-tier, .lp-quote, .lp-faq details, .feed-card, .ios-group, .order-entry, .shop-review) { border-color: transparent; box-shadow: var(--shadow); }
 [data-skin="neu"] :is(.adm-side, .adm-top, .adm-tabsbar, .ws-side, .browser-bar) { border-color: transparent; box-shadow: none; }
-[data-skin="neu"] .btn:not(.btn-text):not(.btn-ghost) { border-color: transparent; box-shadow: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff; }
-[data-skin="neu"] .btn:not(.btn-text):not(.btn-ghost):active { box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff; }
-[data-skin="neu"] :is(.input, .adm-search, .ws-search, .shop-search, .docs-search, .ios-search) { border-color: transparent; box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff; background: #e0e5ec; }
-[data-skin="neu"] .seg { box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff; background: #e0e5ec; }
-[data-skin="neu"] .seg button.on { box-shadow: 3px 3px 6px #a3b1c6, -3px -3px 6px #ffffff; background: #e0e5ec; }
-[data-skin="neu"] .adm-menu.on { background: #e0e5ec; box-shadow: inset 3px 3px 6px #a3b1c6, inset -3px -3px 6px #ffffff; }
+[data-skin="neu"] .btn:not(.btn-text):not(.btn-ghost) { border-color: transparent; box-shadow: 4px 4px 9px #d3dae5, -4px -4px 9px #ffffff; }
+[data-skin="neu"] .btn:not(.btn-text):not(.btn-ghost):active { box-shadow: inset 3px 3px 6px #d3dae5, inset -3px -3px 6px #ffffff; }
+[data-skin="neu"] :is(.input, .adm-search, .ws-search, .shop-search, .docs-search, .ios-search) { border-color: transparent; box-shadow: inset 3px 3px 6px #d3dae5, inset -3px -3px 6px #ffffff; background: #f1f4f8; }
+[data-skin="neu"] .seg { box-shadow: inset 3px 3px 6px #d3dae5, inset -3px -3px 6px #ffffff; background: #f1f4f8; }
+[data-skin="neu"] .seg button.on { box-shadow: 3px 3px 6px #d3dae5, -3px -3px 6px #ffffff; background: #f1f4f8; }
+[data-skin="neu"] .adm-menu.on { background: #f1f4f8; box-shadow: inset 3px 3px 6px #d3dae5, inset -3px -3px 6px #ffffff; }
 [data-skin="neu"] .adm-menu.on::before { display: none; }
 [data-skin="neu"] .tbl th { background: transparent; }
-[data-skin="neu"] .tbl td { border-bottom-color: #d1d9e6; }
+[data-skin="neu"] .tbl td { border-bottom-color: #e3e8ef; }
 
 /* ---------- 新野兽派 Neo-Brutalism ---------- */
 [data-skin="brutal"] :is(.admin, .browser, .phone) {
@@ -181,14 +196,15 @@
 /* ---------- Material 3 ---------- */
 [data-skin="m3"] :is(.admin, .browser, .phone) {
   color-scheme: light;
-  --bg: color-mix(in srgb, var(--primary) 4%, #fffbfe); --bg-2: color-mix(in srgb, var(--primary) 12%, #fffbfe);
-  --card: color-mix(in srgb, var(--primary) 7%, #fffbfe); --card-2: color-mix(in srgb, var(--primary) 10%, #fffbfe);
-  --fg: #1d1b20; --fg-2: #49454f; --fg-3: #79747e; --muted: #938f99; --border: transparent; --border-2: #cac4d0; --hover: color-mix(in srgb, var(--primary) 8%, transparent);
-  --shadow-sm: none; --shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 1px 3px 1px rgba(0, 0, 0, .08); --shadow-lg: 0 2px 6px 2px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .18); --shadow-xl: 0 4px 8px 3px rgba(0, 0, 0, .12), 0 1px 3px rgba(0, 0, 0, .2);
+  --bg: color-mix(in srgb, var(--primary) 3%, #ffffff); --bg-2: color-mix(in srgb, var(--primary) 8%, #ffffff);
+  --card: #ffffff; --card-2: color-mix(in srgb, var(--primary) 5%, #ffffff);
+  --fg: #1d1b20; --fg-2: #49454f; --fg-3: #79747e; --muted: #938f99; --border: transparent; --border-2: #e6e0ec; --hover: color-mix(in srgb, var(--primary) 6%, transparent);
+  --shadow-sm: none; --shadow: 0 1px 2px rgba(0, 0, 0, .08), 0 1px 3px 1px rgba(0, 0, 0, .05); --shadow-lg: 0 2px 6px 2px rgba(0, 0, 0, .08), 0 1px 2px rgba(0, 0, 0, .12); --shadow-xl: 0 4px 8px 3px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .14);
   --r-card: 16px; --r-ctl: 999px; --r-tag: 8px; --radius: 16px;
-  --ios-bg: color-mix(in srgb, var(--primary) 4%, #fffbfe); --ios-card: color-mix(in srgb, var(--primary) 9%, #fffbfe); --ios-fg: #1d1b20; --ios-fg2: #49454f; --ios-sep: transparent; --ios-fill: color-mix(in srgb, var(--primary) 12%, #fffbfe);
+  --ios-bg: color-mix(in srgb, var(--primary) 3%, #ffffff); --ios-card: #ffffff; --ios-fg: #1d1b20; --ios-fg2: #49454f; --ios-sep: transparent; --ios-fill: color-mix(in srgb, var(--primary) 7%, #ffffff);
   font-family: Roboto, var(--font);
 }
+[data-skin="m3"] .card { box-shadow: var(--shadow); }
 [data-skin="m3"] .btn:not(.btn-primary):not(.btn-text):not(.btn-ghost):not(.btn-danger) { background: color-mix(in srgb, var(--primary) 14%, #fff); color: color-mix(in srgb, var(--primary) 70%, #000); border-color: transparent; }
 [data-skin="m3"] .btn-primary { box-shadow: none; }
 [data-skin="m3"] .input { border: 1px solid #79747e; border-radius: 4px; background: transparent; }

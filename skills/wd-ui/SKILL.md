@@ -1,6 +1,6 @@
 ---
 name: wd-ui
-description: UI 设计风格顾问与设计提示词生成器。根据用户的业务、行业、目标用户、产品形态（管理后台 / Web 官网 / SaaS 工作台 / 电商 / 文档站 / App / 小程序 / 数据大屏）和品牌调性，从 28 种 UI 风格、15 套配色、100+ 组件、27 种页面模板、80+ 动效中挑选最合适的设计方向，输出可直接交给 AI 或前端实现的精准设计提示词与设计令牌（CSS 变量）。Use when the user asks which UI style / design direction / color palette to use, wants a design system or design tokens, or needs a precise prompt to generate a page, component, or style template — e.g. “帮我选个 UI 风格”“做一个 XX 后台/官网/App 用什么风格好”“给我一段设计提示词”“推荐配色”“出一份 UI 规范”“choose a UI style for my SaaS”.
+description: UI 设计风格顾问与设计提示词生成器。根据用户的业务、行业、目标用户、产品形态（管理后台 / Web 官网 / SaaS 工作台 / 电商 / 文档站 / App / 小程序 / 数据大屏）和品牌调性，从 29 种 UI 风格、15 套配色、100+ 组件、27 种页面模板、80+ 动效中挑选最合适的设计方向，输出可直接交给 AI 或前端实现的精准设计提示词与设计令牌（CSS 变量）。Use when the user asks which UI style / design direction / color palette to use, wants a design system or design tokens, or needs a precise prompt to generate a page, component, or style template — e.g. “帮我选个 UI 风格”“做一个 XX 后台/官网/App 用什么风格好”“给我一段设计提示词”“推荐配色”“出一份 UI 规范”“choose a UI style for my SaaS”.
 license: MIT
 metadata:
   author: itxd
@@ -17,7 +17,7 @@ metadata:
 | 文件 | 什么时候读 |
 | --- | --- |
 | `references/industry-matrix.md` | 第 2 步，确定候选风格与配色（总是先读） |
-| `references/styles.md` | 选定风格后，取对应风格的“规格”块（28 种，用 `## \`id\`` 定位） |
+| `references/styles.md` | 选定风格后，取对应风格的“规格”块（29 种，用 `## \`id\`` 定位） |
 | `references/palettes.md` | 选配色、或用户已有品牌色需要配套时 |
 | `references/forms.md` | 需要整页/整套界面结构时（后台、官网、工作台、电商、文档站、App 各屏） |
 | `references/pages.md` | 需要某一类页面（登录、列表、详情、结算……）的布局时 |
