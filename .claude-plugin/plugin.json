@@ -1,0 +1,10 @@
+{
+  "name": "wd-ui",
+  "version": "1.0.0",
+  "description": "UI 设计风格顾问：根据业务场景从 28 种 UI 风格、15 套配色、100+ 组件中推荐设计方向，并生成精准的设计提示词与设计令牌。",
+  "author": { "name": "itxd" },
+  "homepage": "https://itxd.github.io/wd-ui/",
+  "repository": "https://github.com/itxd/wd-ui",
+  "license": "MIT",
+  "keywords": ["ui", "design", "design-system", "prompt", "style", "color-palette", "skill"]
+}

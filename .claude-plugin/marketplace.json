@@ -1,0 +1,18 @@
+{
+  "name": "wd-ui",
+  "owner": { "name": "itxd" },
+  "metadata": {
+    "description": "wd-ui：UI 设计风格与设计提示词 skill",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "wd-ui",
+      "source": "./",
+      "description": "根据业务场景推荐 UI 风格、配色与组件，并生成可直接交给 AI 的设计提示词。",
+      "version": "1.0.0",
+      "category": "design",
+      "homepage": "https://itxd.github.io/wd-ui/"
+    }
+  ]
+}
