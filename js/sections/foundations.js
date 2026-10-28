@@ -36,7 +36,7 @@
   Atlas.mount('foundations', `
     <div class="wrap">
       ${Atlas.head({
-        no: '03 / 基础规范',
+        no: '04 / 基础规范',
         title: '设计基础',
         en: 'Foundations',
         desc: '风格和组件都建立在这些“原子”之上：字体层级、间距、圆角、阴影、栅格和图标。它们通常被定义为设计令牌（Design Tokens），在设计稿和代码之间共用。',

@@ -3,8 +3,8 @@
   const I = Atlas.icon;
   const dims = [
     { no: 'D1', icon: 'monitor', title: '产品形态', desc: '管理后台 / Web 应用 / App 应用，决定布局骨架、信息密度与导航方式。', count: 3, unit: '种形态 · 14 个示例界面' },
-    { no: 'D2', icon: 'palette', title: '色系', desc: '主色、辅助色、中性色与功能色，决定情绪与品牌识别。', count: 15, unit: '套色板' },
-    { no: 'D3', icon: 'layers', title: 'UI 风格', desc: '扁平、玻璃、新拟态、新野兽派……决定质感与时代感。', count: 27, unit: '种风格' },
+    { no: 'D2', icon: 'layers', title: 'UI 风格', desc: '扁平、玻璃、新拟态、新野兽派……决定质感与时代感。', count: 27, unit: '种风格' },
+    { no: 'D3', icon: 'palette', title: '色系', desc: '主色、辅助色、中性色与功能色，决定情绪与品牌识别。', count: 15, unit: '套色板' },
     { no: 'D4', icon: 'grid', title: '功能', desc: '页面类型 + 组件，决定界面能“做什么”。', count: 129, unit: '个组件与页面类型' },
     { no: 'D5', icon: 'zap', title: '动效', desc: '缓动、微交互、加载、转场、滚动，决定“手感”。', count: 84, unit: '种动效' },
   ];
@@ -21,13 +21,13 @@
       </p>
       <div class="hero-cta rv">
         <a class="btn btn-primary btn-lg" href="#platforms">从产品形态开始 ${I('arrowDown', 16)}</a>
-        <a class="btn btn-lg" href="#lab">${I('sparkle', 16)} 组合实验室</a>
+        <a class="btn btn-lg" href="#styles">${I('layers', 16)} 浏览 UI 风格</a>
         <a class="btn btn-ghost btn-lg" href="#glossary">${I('search', 16)} 术语索引</a>
       </div>
 
       <div class="formula rv">
         ${dims.map((d) => `
-          <a class="formula-item" href="#${{ D1: 'platforms', D2: 'colors', D3: 'styles', D4: 'components', D5: 'motion' }[d.no]}">
+          <a class="formula-item" href="#${{ D1: 'platforms', D2: 'styles', D3: 'colors', D4: 'components', D5: 'motion' }[d.no]}">
             <div class="formula-no">${d.no}</div>
             <h3>${I(d.icon, 18)}${d.title}</h3>
             <p>${d.desc}</p>

@@ -177,7 +177,7 @@
   Atlas.mount('styles', `
     <div class="wrap">
       ${Atlas.head({
-        no: '04 / UI 风格',
+        no: '02 / UI 风格',
         title: `${styles.length} 种 UI 风格`,
         en: 'Visual Styles',
         desc: '风格决定界面的“质感”和“时代感”。下面每张卡片的上半部分都是用 CSS 实时渲染的样本，不是图片；下半部分写明它的特征、关键实现方式、适用场景和代表产品。',

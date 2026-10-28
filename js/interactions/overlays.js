@@ -107,7 +107,7 @@
   };
 
   /* ---------- 命令面板 ---------- */
-  const sections = [['platforms', '产品形态'], ['colors', '色系'], ['foundations', '基础规范'], ['styles', 'UI 风格'], ['pages', '页面类型'], ['components', '组件库'], ['motion', '动效'], ['lab', '组合实验室'], ['glossary', '术语索引']];
+  const sections = [['platforms', '产品形态'], ['styles', 'UI 风格'], ['colors', '色系'], ['foundations', '基础规范'], ['pages', '页面类型'], ['components', '组件库'], ['motion', '动效'], ['glossary', '术语索引']];
   const actions = [
     ['moon', '切换明暗模式', () => Atlas.toggleTheme()],
     ['pointer', '开关组件检查器', () => document.getElementById('inspectToggle').click()],

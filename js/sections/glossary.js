@@ -39,7 +39,7 @@
   Atlas.mount('glossary', `
     <div class="wrap">
       ${Atlas.head({
-        no: '09 / 术语索引',
+        no: '08 / 术语索引',
         title: '术语索引',
         en: 'Glossary',
         desc: `本页出现过的全部界面部件、色板、风格、页面类型、组件和动效，共 ${items.length} 条，都是从页面里自动收集的。输入中文、英文或别名搜索，点击任意一行会跳转并高亮对应的示例。`,

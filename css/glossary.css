@@ -1,0 +1,30 @@
+/* ============ 术语索引 ============ */
+.glo-bar { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+.glo-search { width: 340px; }
+.glo-search .input { height: 42px; border-radius: 12px; font-size: 14px; }
+.glo-cats { display: flex; flex-wrap: wrap; gap: 6px; }
+.glo-cats button { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 99px; border: 1px solid var(--border); background: var(--card); color: var(--fg-2); font: inherit; font-size: 12.5px; cursor: pointer; }
+.glo-cats button small { font-family: var(--mono); font-size: 10.5px; color: var(--fg-3); }
+.glo-cats button.on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.glo-cats button.on small { color: color-mix(in srgb, var(--bg) 65%, transparent); }
+.glo-table { max-height: 640px; overflow: auto; }
+.glo-table thead th { position: sticky; top: 0; z-index: 1; }
+.glo-table tbody tr { cursor: pointer; }
+.glo-table tbody tr.is-hidden { display: none; }
+.glo-en { font-size: 12px; color: var(--primary); }
+.glo-tag { white-space: nowrap; }
+.glo-tag[data-top="界面部件"] { background: color-mix(in srgb, var(--s1) 12%, transparent); color: var(--s1); border-color: transparent; }
+.glo-tag[data-top="色系"] { background: color-mix(in srgb, var(--s5) 14%, transparent); color: var(--s5); border-color: transparent; }
+.glo-tag[data-top="UI 风格"] { background: color-mix(in srgb, var(--s7) 12%, transparent); color: var(--s7); border-color: transparent; }
+.glo-tag[data-top="组件"] { background: color-mix(in srgb, var(--s3) 12%, transparent); color: var(--s3); border-color: transparent; }
+.glo-tag[data-top="动效"] { background: color-mix(in srgb, var(--s2) 12%, transparent); color: var(--s2); border-color: transparent; }
+.glo-tag[data-top="页面类型"] { background: color-mix(in srgb, var(--s4) 14%, transparent); color: color-mix(in srgb, var(--s4) 75%, #000); border-color: transparent; }
+[data-theme="dark"] .glo-tag[data-top="页面类型"] { color: var(--s4); }
+.glo-go { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 7px; color: var(--fg-3); transition: all .2s; }
+.glo-table tbody tr:hover .glo-go { background: var(--primary); color: var(--primary-fg); }
+.glo-empty { display: none; padding: 30px; text-align: center; color: var(--fg-3); }
+.glo-empty.show { display: block; }
+
+/* 被定位的元素闪烁高亮 */
+.locate-flash { animation: locateFlash 2s var(--ease-out); }
+@keyframes locateFlash { 0%, 50% { outline: 3px solid var(--anno); outline-offset: 2px; } 100% { outline: 3px solid transparent; outline-offset: 8px; } }

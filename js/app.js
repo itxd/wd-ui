@@ -178,8 +178,8 @@
   const motionCount = document.querySelectorAll('.mo').length + document.querySelectorAll('.loader-cell, .enter-cell, .ease-row').length;
   const stats = {
     D1: [14, '个可交互示例界面'],
-    D2: [Atlas.palettes.length, '套色板 + 15 种渐变'],
-    D3: [Atlas.styles.length, '种风格样本'],
+    D2: [Atlas.styles.length, '种风格样本'],
+    D3: [Atlas.palettes.length, '套色板 + 15 种渐变'],
     D4: [document.querySelectorAll('.cmp').length + document.querySelectorAll('.wf-card').length, '个组件与页面类型'],
     D5: [motionCount, '种动效'],
   };
