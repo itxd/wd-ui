@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI 图谱 · 网页界面形态、色系、风格、组件与动效全景</title>
+  <meta name="description" content="按产品形态、色系、UI 风格、功能、动效五个维度整理的网页界面图谱，包含可交互的组件、页面模板与动效示例。">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/kit.css">
+  <link rel="stylesheet" href="css/platform-admin.css">
+  <link rel="stylesheet" href="css/platform-web.css">
+  <link rel="stylesheet" href="css/platform-app.css">
+  <link rel="stylesheet" href="css/colors.css">
+  <link rel="stylesheet" href="css/foundations.css">
+  <link rel="stylesheet" href="css/styles-gallery.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/motion.css">
+  <link rel="stylesheet" href="css/lab.css">
+  <link rel="stylesheet" href="css/overlays.css">
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top" aria-label="回到顶部">
+      <span class="brand-mark"></span>
+      <span class="brand-name">UI 图谱<small>Interface Atlas</small></span>
+    </a>
+    <nav class="topnav" id="topnav" aria-label="章节导航">
+      <a href="#platforms">产品形态</a>
+      <a href="#colors">色系</a>
+      <a href="#foundations">基础规范</a>
+      <a href="#styles">UI 风格</a>
+      <a href="#pages">页面类型</a>
+      <a href="#components">组件</a>
+      <a href="#motion">动效</a>
+      <a href="#lab">组合实验室</a>
+      <a href="#glossary">术语索引</a>
+    </nav>
+    <div class="top-tools">
+      <label class="tool-switch" title="鼠标悬停在示例界面上，显示该区域的组件名称">
+        <input type="checkbox" id="inspectToggle" checked><span class="tool-switch-ui"></span><span>检查器</span>
+      </label>
+      <label class="tool-switch" title="在所有示例界面上同时显示组件名称">
+        <input type="checkbox" id="annoToggle"><span class="tool-switch-ui"></span><span>全部标注</span>
+      </label>
+      <div class="accent-dots" id="accentDots" aria-label="主题色"></div>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="切换明暗模式"></button>
+    </div>
+  </header>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <main id="main">
+    <section class="hero" id="top"></section>
+    <section class="section" id="platforms"></section>
+    <section class="section" id="colors"></section>
+    <section class="section" id="foundations"></section>
+    <section class="section" id="styles"></section>
+    <section class="section" id="pages"></section>
+    <section class="section" id="components"></section>
+    <section class="section" id="motion"></section>
+    <section class="section" id="lab"></section>
+    <section class="section" id="glossary"></section>
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <div class="inspector-tip" id="inspectorTip" aria-hidden="true"></div>
+  <div class="chart-tip" id="chartTip" aria-hidden="true"></div>
+  <div class="toast-host" id="toastHost" aria-live="polite"></div>
+  <div class="notify-host" id="notifyHost" aria-live="polite"></div>
+  <div class="overlay-host" id="overlayHost"></div>
+
+  <script src="js/core.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/sections/hero.js"></script>
+  <script src="js/sections/platforms.js"></script>
+  <script src="js/sections/platform-admin.js"></script>
+  <script src="js/sections/platform-web.js"></script>
+  <script src="js/sections/platform-web-more.js"></script>
+  <script src="js/sections/platform-app.js"></script>
+  <script src="js/sections/colors.js"></script>
+  <script src="js/sections/foundations.js"></script>
+  <script src="js/sections/styles.js"></script>
+  <script src="js/sections/pages.js"></script>
+  <script src="js/sections/components.js"></script>
+  <script src="js/sections/components-nav.js"></script>
+  <script src="js/sections/components-entry.js"></script>
+  <script src="js/sections/components-display.js"></script>
+  <script src="js/sections/components-feedback.js"></script>
+  <script src="js/sections/components-charts-ai.js"></script>
+  <script src="js/sections/motion.js"></script>
+  <script src="js/sections/lab.js"></script>
+  <script src="js/sections/glossary.js"></script>
+  <script src="js/interactions/overlays.js"></script>
+  <script src="js/interactions/ui-controls.js"></script>
+  <script src="js/interactions/mockups.js"></script>
+  <script src="js/interactions/motion-fx.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
